@@ -1,0 +1,2 @@
+# Introduction
+The main goal of this project is to create a conversational helper chatbot that can be used to keep the conversation running. This is my Masters Thesis topic advised by Prof. Shlomo Argamon. The relevant research documention prior to starting the project is provided in the ```docs/``` folder. The project is implemented using the Cornell Movie-Dialogues Corpus availabe [here](http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html) and Facebook Empatheic Dialogues dataset available [here](https://github.com/facebookresearch/EmpatheticDialogues).  
