@@ -1,0 +1,3 @@
+[submodule "src/rosie"]
+	path = src/rosie
+	url = git@github.com:pandorabots/rosie.git
