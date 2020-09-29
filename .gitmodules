@@ -1,3 +1,3 @@
-[submodule "src/rosie-api"]
+[submodule "src/rosieAPI"]
 	path = src/rosieAPI
 	url = https://github.com/pandorabots/pb-python.git
