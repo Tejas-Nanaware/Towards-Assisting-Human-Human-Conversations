@@ -1,5 +1,6 @@
 import flask
-from flask import request, jsonify
+from flask import request, jsonify, make_response
+from flask_cors import CORS, cross_origin
 
 import transformers
 from transformers import AutoModelWithLMHead, AutoTokenizer
@@ -7,7 +8,9 @@ from transformers import BlenderbotSmallTokenizer, BlenderbotForConditionalGener
 import torch
 
 app = flask.Flask(__name__)
+cors = CORS(app)
 app.config['DEBUG'] = True
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 DialoGPT_tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-large")
 DialoGPT_model = AutoModelWithLMHead.from_pretrained("microsoft/DialoGPT-large")
@@ -29,7 +32,7 @@ def get_DialoGPT_response(text):
     # return last ouput tokens from bot
     reply = DialoGPT_tokenizer.decode(chat_history_ids[:, bot_input_ids.shape[-1]:][0], skip_special_tokens=True)
 
-    return reply
+    return {'bot_name': "DialoGPT", 'reply': reply}
 
 def get_Blenderbot_response(text):
     inputs = Blenderbot_tokenizer([text], return_tensors='pt')
@@ -39,14 +42,16 @@ def get_Blenderbot_response(text):
     reply = [Blenderbot_tokenizer.decode(g, skip_special_tokens=True, clean_up_tokenization_spaces=True) for g in reply_ids]
     reply = " ".join(str(x) for x in reply)
 
-    return reply
+    return {'bot_name': "Blenderbot", 'reply': reply}
 
 @app.route('/', methods=['GET'])
+@cross_origin()
 def home():
     return '''<h1>Chat Framework API</h1>
 <p>A prototype API for getting chatbot responses.</p>'''
 
 @app.route('/api/v1/DialoGPT', methods=['GET'])
+@cross_origin()
 def flask_DialoGPT_response():
     print(request.args)
     if 'text' in request.args:
@@ -57,6 +62,7 @@ def flask_DialoGPT_response():
         return jsonify("Error getting text for retrieving DialoGPT Response")
 
 @app.route('/api/v1/Blenderbot', methods=['GET'])
+@cross_origin()
 def flask_Blenderbot_response():
     print(request.args)
     if 'text' in request.args:
