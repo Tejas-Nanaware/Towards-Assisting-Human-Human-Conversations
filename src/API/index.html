@@ -10,11 +10,22 @@
 <body>
     <h1>Chat Framework API Test</h1>
     <input type="text" id="text" />
+    <button id="async_btn">Get Async Response</button>
     <button id="submit">Get Response</button>
     <p id="DialoGPT">DialoGPT: </p>
     <p id="Blenderbot">Blenderbot: </p>
+    <p id="DialoGPTAsync">Async DialoGPT: </p>
+    <p id="BlenderbotAsync">Async Blenderbot: </p>
     <script>
+        // Attach event listeners for the buttons
         window.onload = function () {
+            var async_btn = document.getElementById("async_btn");
+            if (async_btn.addEventListener) {
+                async_btn.addEventListener("click", asyncClick, false);
+            } else if (async_btn.attachEvent) {
+                async_btn.attachEvent("onclick", asyncClick);
+            }
+            
             var btn = document.getElementById("submit");
             if (btn.addEventListener) {
                 btn.addEventListener("click", btnClick, false);
@@ -22,6 +33,31 @@
                 btn.attachEvent("onclick", btnClick);
             }
         };
+        // Get response using async method so that response will always be given once promise is resolved
+        async function getBotResponseAsync(url) {
+            let response = await fetch(url);
+            let data = await response.json()
+            return data;
+        }
+        function asyncClick() {
+            var Blenderbot_url = "http://127.0.0.1:5000/api/v1/Blenderbot?text=";
+            var DialoGPT_url = "http://127.0.0.1:5000/api/v1/DialoGPT?text=";
+            var text = document.getElementById('text').value;
+            
+            var Blenderbot_request = Blenderbot_url + text;
+            var DialoGPT_request = DialoGPT_url + text;
+
+            getBotResponseAsync(Blenderbot_request).then(data => {
+                console.log(data);
+                document.getElementById('BlenderbotAsync').innerHTML = "Async Blenderbot: " + data['reply'];
+            });
+            getBotResponseAsync(DialoGPT_request).then(data => {
+                console.log(data);
+                document.getElementById('DialoGPTAsync').innerHTML = "Async DialoGPT: " + data['reply'];
+            });
+        }
+
+        // Non async method to get the response from the bot
         function btnClick() {
 
             var Blenderbot_url = "http://127.0.0.1:5000/api/v1/Blenderbot?text=";
@@ -37,7 +73,7 @@
                 }
             }).then(Blenderbot_response => {
                 console.log(Blenderbot_response);
-                document.getElementById('Blenderbot').innerHTML = Blenderbot_response['reply'];
+                document.getElementById('Blenderbot').innerHTML = "Blenderbot: " + Blenderbot_response['reply'];
             });
             fetch(DialoGPT_request).then(response => {
                 if (response.ok) {
@@ -45,7 +81,7 @@
                 }
             }).then(DialoGPT_response => {
                 console.log(DialoGPT_response);
-                document.getElementById('DialoGPT').innerHTML = DialoGPT_response['reply'];
+                document.getElementById('DialoGPT').innerHTML = "DialoGPT: " + DialoGPT_response['reply'];
             });
         }
     </script>
