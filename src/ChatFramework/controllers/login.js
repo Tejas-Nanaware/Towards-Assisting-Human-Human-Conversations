@@ -11,22 +11,22 @@ const login = (req, res, next) => {
     if (!req.body ) { 
         res.sendFile(path.join(rootDir, '/public/login.html'));
     }
-    const username = post.email;
+    const email = post.email;
     const password = post.password;
     
-    doLoginValidation(username, password).then(user => {
+    doLoginValidation(email, password).then(user => {
         if(!user){
             console.log('User not found');
             res.redirect('/login');
         }
         else {
-            if(password != user.password){
+            if(password != user['dataValues']['Password']){
                 console.log('Incorrect password');
                 res.redirect('/login');
             }
             else {
-                req.session['userID'] = user['dataValues']['id'];
-                req.session.name = user['dataValues']['username'];
+                req.session['userID'] = user['dataValues']['ID'];
+                req.session['email'] = user['dataValues']['Email'];
                 res.redirect('/profile');
             }
         }
@@ -35,11 +35,11 @@ const login = (req, res, next) => {
     });
 }
 
-const doLoginValidation = async (username, password) => {
-    const user  = await models.login.findOne({
+const doLoginValidation = async (email, password) => {
+    const user  = await models.users.findOne({
         where: {
-            username: {
-                [Op.eq]: username
+            Email: {
+                [Op.eq]: email
             },
             // password: {
             //     [Op.eq]: password

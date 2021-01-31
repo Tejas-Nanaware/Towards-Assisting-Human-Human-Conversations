@@ -7,6 +7,7 @@ const getProfile = (req, res, next) => {
     res.sendFile(rootDir + '/public/profile.html');
     console.log(req.session);
     console.log(req.session['userID']);
+    console.log(req.session['email']);
 
 }
 

@@ -8,13 +8,15 @@
 </head>
 <body>
     <div class="jumbotron">
-        <h1>Login</h1>
+        <h1>Register</h1>
     </div>
     <div class="container">
-        <form action="/login" method="post">
+        <form action="/register" method="post">
+            <input name="firstName" type="text" placeholder="John">
+            <input name="lastName" type="text" placeholder="Doe">
             <input name="email" type="email" placeholder="username@example.com">
             <input name = "password" type="password" placeholder="Password">
-            <button class="btn btn-primary" type="submit">Login</button>
+            <button class="btn btn-primary" type="submit">Register</button>
         </form>
     </div>
 </body>

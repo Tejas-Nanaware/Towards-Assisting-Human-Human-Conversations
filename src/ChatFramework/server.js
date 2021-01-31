@@ -18,7 +18,7 @@ app.use(session({
     secret: 'Illinois Tech', 
     saveUninitialized: false,
     cookie: { 
-        maxAge: 60*60*24 
+        maxAge: 60*60*12
     }
 }));
 
