@@ -28,6 +28,11 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             unique: false
         },
+        PasswordSalt: {
+            allowNull: false,
+            type: DataTypes.STRING,
+            unique: false
+        },
         CreatedAt: {
             allowNull: false,
             type: DataTypes.DATE(6),
