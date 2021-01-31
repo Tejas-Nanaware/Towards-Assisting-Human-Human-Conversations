@@ -4,19 +4,28 @@ global.rootDir = path.resolve(__dirname);
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const session = require('express-session');
+
 
 app.use('/css', express.static(path.join(rootDir, 'node_modules/bootstrap/dist/css')));
 app.use('/js', express.static(path.join(rootDir, 'node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(rootDir, 'node_modules/jquery/dist')));
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(session({ 
+    secret: 'Illinois Tech', 
+    saveUninitialized: false,
+    cookie: { 
+        maxAge: 60*60*24 
+    }
+}));
+
 app.use(require('./routes/routes'));
 
 const server = require('http').Server(app);
 const PORT = 3000
-// server.listen(PORT, () => {
-//     console.log('Listening on 3000');
-// });
 
 // Connect the database
 const sequelize = require('./sequelize');

@@ -1,5 +1,4 @@
 const path = require('path');
-const config = require('../config/auth.config');
 const { models } = require('../sequelize');
 const { Op } = require('sequelize');
 
@@ -26,6 +25,8 @@ const login = (req, res, next) => {
                 res.redirect('/login');
             }
             else {
+                req.session['userID'] = user['dataValues']['id'];
+                req.session.name = user['dataValues']['username'];
                 res.redirect('/profile');
             }
         }

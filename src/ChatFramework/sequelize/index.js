@@ -14,7 +14,8 @@ const sequelize = new Sequelize(db_config.DATABASE, db_config.USER, db_config.PA
     },
     define: {
         timestamps: db_config.define.timestamps
-    }
+    },
+    logging: db_config.logging
   });
 
 const modelDefiners = [
