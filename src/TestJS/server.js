@@ -18,6 +18,8 @@ var io              = require('socket.io')(server);
 var bodyParser      = require('body-parser');
 var session 		= require('express-session');
 
+// var routes = require('./routes/register') 
+
 const fetch = require("node-fetch");
 
 
@@ -35,28 +37,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use( bodyParser.json() );
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(session({secret: 'tom-riddle'}));
-
+app.use(require('./routes/register'))
 
 app.get('/' , function (req , res) {
     authenticate(req , res);
 });
 
-app.get('/chat_start' , function (req , res) {
-    authenticate(req , res);
-});
+// app.get('/chat_start' , function (req , res) {
+//     authenticate(req , res);
+// });
 
 
-app.get('/login' , function (req , res) {
-    authenticate(req , res);
-});
+// app.get('/login' , function (req , res) {
+//     authenticate(req , res);
+// });
 
-app.post('/login' , function (req , res) {
-    login(req , res);
-});
-app.get('/logout', function (req, res) {
-    delete req.session.user;
-    res.redirect('/login');
-});
+// app.post('/login' , function (req , res) {
+//     login(req , res);
+// });
+// app.get('/logout', function (req, res) {
+//     delete req.session.user;
+//     res.redirect('/login');
+// });
 
 function chat_start() {
 // ===================================Sockets starts  =========================
@@ -122,30 +124,30 @@ function updateResponses(text) {
 }
 
 
-function login(req,res){
-    var post = req.body;
-     username  = post.user;
-    var password = post.password;
-    //console.log(username);
-    var sql = "SELECT * FROM login WHERE username='" + username+"'";
-    con.query(sql, function (err, result, fields) {
-		if (result.length === 1) {
-			var jsonString = JSON.stringify(result);
-			var jsonData = JSON.parse(jsonString);
-			if(jsonData[0].password === password) {
-				//console.log("User Identified");
-				req.session.user = post.user;
-				username = post.user;
-				res.redirect("/chat_start");
-			}else  {
-				//console.log("user not Identified");
-				res.redirect("/login");
-			}
-		} else {
-			res.redirect("/login");
-		}
-    });
-}
+// function login(req,res){
+//     var post = req.body;
+//      username  = post.user;
+//     var password = post.password;
+//     //console.log(username);
+//     var sql = "SELECT * FROM login WHERE username='" + username+"'";
+//     con.query(sql, function (err, result, fields) {
+// 		if (result.length === 1) {
+// 			var jsonString = JSON.stringify(result);
+// 			var jsonData = JSON.parse(jsonString);
+// 			if(jsonData[0].password === password) {
+// 				//console.log("User Identified");
+// 				req.session.user = post.user;
+// 				username = post.user;
+// 				res.redirect("/chat_start");
+// 			}else  {
+// 				//console.log("user not Identified");
+// 				res.redirect("/login");
+// 			}
+// 		} else {
+// 			res.redirect("/login");
+// 		}
+//     });
+// }
 
 function checkuser() {
 	if (!req.session.user) {
