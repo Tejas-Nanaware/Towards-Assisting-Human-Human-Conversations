@@ -10,6 +10,7 @@ const session = require('express-session');
 app.use('/css', express.static(path.join(rootDir, 'node_modules/bootstrap/dist/css')));
 app.use('/js', express.static(path.join(rootDir, 'node_modules/bootstrap/dist/js')));
 app.use('/js', express.static(path.join(rootDir, 'node_modules/jquery/dist')));
+app.use('/static', express.static(path.join(rootDir, 'public/static')));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

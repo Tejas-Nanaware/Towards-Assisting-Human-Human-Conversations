@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assistive Chats</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/css/register.css">
 </head>
 <body>
     <div class="jumbotron">
@@ -12,12 +13,218 @@
     </div>
     <div class="container">
         <form action="/register" method="post">
-            <input name="firstName" type="text" placeholder="John">
-            <input name="lastName" type="text" placeholder="Doe">
-            <input name="email" type="email" placeholder="username@example.com">
-            <input name = "password" type="password" placeholder="Password">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">First Name</span>
+                </div>
+                <input name="firstName" type="text" class="form-control" placeholder="John" aria-label="firstName" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Last Name</span>
+                </div>
+                <input name="lastName" type="text" class="form-control" placeholder="Doe" aria-label="lastName" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Email</span>
+                </div>
+                <input name="email" type="email" class="form-control" placeholder="username@example.com" aria-label="email" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Password</span>
+                </div>
+                <input name="password" type="password" class="form-control" placeholder="Password" aria-label="password" aria-describedby="addon-wrapping">
+            </div>
+            <h3>Please answer these demographic questions</h3>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Age in years</span>
+                </div>
+                <input name="age" type="number" class="form-control" placeholder="23" aria-label="age" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="selectGender">Gender</label>
+                </div>
+                <select name="genderSelect" class="custom-select" id="selectGender" onchange="genderNotListed(this);">
+                    <option selected>Choose...</option>
+                    <option value="Male / Man">Male / Man</option>
+                    <option value="Female / Woman">Female / Woman</option>
+                    <option value="Trans male / Trans man">Trans male / Trans man</option>
+                    <option value="Trans female / Trans woman">Trans female / Trans woman</option>
+                    <option value="Genderqueer / Gender non-conforming / Gender non-binary">Genderqueer / Gender non-conforming / Gender non-binary</option>
+                    <option value="A gender identity not listed here. Please specify">A gender identity not listed here. Please specify</option>
+                </select>
+                <input name="genderText" id="genderText" type="text" class="form-control" placeholder="Agender" aria-label="genderText" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="selectRace">Race / Ethnicity</label>
+                </div>
+                <select name="selectRace" class="custom-select" id="selectRace">
+                    <option selected>Choose...</option>
+                    <option value="Hispanic / Latino">Hispanic / Latino</option>
+                    <option value="Black or African American, Non-Hispanic">Black or African American, Non-Hispanic</option>
+                    <option value="White, Non-Hispanic">White, Non-Hispanic</option>
+                    <option value="American Indian or Alaska Native, Non-Hispanic">American Indian or Alaska Native, Non-Hispanic</option>
+                    <option value="Asian, Non-Hispanic">Asian, Non-Hispanic</option>
+                    <option value="Native Hawaiian or other Pacific Islander, Non-Hispanic">Native Hawaiian or other Pacific Islander, Non-Hispanic</option>
+                    <option value="Two or more races, Non-Hispanic">Two or more races, Non-Hispanic</option>
+                    <option value="Race and/or Ethnicity Unknown">Race and/or Ethnicity Unknown</option>
+                    <option value="Prefer not to answer">Prefer not to answer</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="nativeLanguage">Native Language</label>
+                </div>
+                <select name="nativeLanguageSelect" class="custom-select" id="nativeLanguage" onchange="languageNotListed(this);">
+                    <option selected>Choose...</option>
+                    <option value="English">English</option>
+                    <option value="Mandarin">Chinese - Mandarin</option>
+                    <option value="Cantonese">Chinese - Cantonese</option>
+                    <option value="French">French</option>
+                    <option value="German">German</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Vietnamese">Vietnamese</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Other">Others - Specify</option>
+                </select>
+                <input name="nativeLanguageText" id="nativeLanguageText" type="text" class="form-control" placeholder="Marathi" aria-label="nativeLanguageText" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="nationality">Nationality</label>
+                </div>
+                <select name="nationality" class="custom-select" id="nationality">
+                    <option selected>Choose...</option>
+                    <option value="United States of America">United States of America</option>
+                    <option value="Prefer not to answer">Prefer not to answer</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="education">Education</label>
+                </div>
+                <select name="education" class="custom-select" id="education">
+                    <option selected>Choose...</option>
+                    <option value="Some high school">Some high school</option>
+                    <option value="High school diploma or equivalent">High school diploma or equivalent</option>
+                    <option value="Post High School Vocational training">Post High School Vocational training</option>
+                    <option value="Some College or Associate's degree">Some College or Associate's degree</option>
+                    <option value="Bachelor's degree">Bachelor's degree</option>
+                    <option value="Master's degree">Master's degree</option>
+                    <option value="Doctorate degree">Doctorate degree</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="fieldOfEducation">Field of Education</label>
+                </div>
+                <select name="fieldOfEducation" class="custom-select" id="fieldOfEducation">
+                    <option selected>Choose...</option>
+                    <option value="Natural and Physical Sciences">Natural and Physical Sciences (E.g. Mathematical, Astronomy, Chemical, Earth, Biological, Other Natural and Physical Sciences)</option>
+                    <option value="Information Technology">Information Technology (E.g. Computer Science, Information Systems, Other Information Technology)</option>
+                    <option value="Engineering and Related Technologies">Engineering and Related Technologies (E.g. Aeronautics, Manufacturing, Food Technology, Materials Science, Plant and Machine Maintenance)</option>
+                    <option value="Architecture and Building">Architecture and Building (E.g. Architecture and Urban Environment, Building)</option>
+                    <option value="Agriculture, Environmental and Related Studies">Agriculture, Environmental and Related Studies (E.g. Crop Production, Animal Production and Management, Environmental Impact and Assessment)</option>
+                    <option value="Health">Health (E.g. Disease Processes and Mechanisms, Restoration and Maintenance of Health, Diagnosis, Principles and Practices of Public Health)</option>
+                    <option value="Education">Education (E.g. Curriculum Development, Processes of Learning and Skill Acquisition, Teaching Methods)</option>
+                    <option value="Management and Commerce">Management and Commerce (E.g. Administration, Human Resources, Sales, Marketing, Financial Management, Human Behaviour and Time Management)</option>
+                    <option value="Society and Culture">Society and Culture (E.g. Belief and Value Systems, Cultural Expression, Human Development, Politics, Social Organisation & Research)</option>
+                    <option value="Creative Arts">Creative Arts (E.g. Performing Arts, Visual Arts and Crafts, Graphic and Design Studies, Communication and Media Studies, Other Creative Arts)</option>
+                    <option value="Food, Hospitality and Personal Services">Food, Hospitality and Personal Services (E.g. Food and Hospitality, Personal Services, Beauty Care, Hair Cutting & Styling, Housekeeping)</option>
+                    <option value="Mixed Field Programs">Mixed Field Programs (E.g. General Education, Social & Employment Skills, Literacy & Numeracy Skills, Social & Workplace Relationships)</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="maritalStatus">Marital Status</label>
+                </div>
+                <select name="maritalStatus" class="custom-select" id="maritalStatus">
+                    <option selected>Choose...</option>
+                    <option value="Never married">Never married</option>
+                    <option value="Married">Married</option>
+                    <option value="Widowed">Widowed</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Separated">Separated</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="employementStatus">Employement Status</label>
+                </div>
+                <select name="employementStatus" class="custom-select" id="employementStatus" onchange="isNotStudent(this);">
+                    <option selected>Choose...</option>
+                    <option value="Employed Full-Time">Employed Full-Time</option>
+                    <option value="Employed Part-Time">Employed Part-Time</option>
+                    <option value="Student">Student</option>
+                </select>
+            </div>
+            <div class="input-group mb-3" id="workIndustryDiv">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="workIndustry">Work Industry</label>
+                </div>
+                <select name="workIndustry" class="custom-select" id="workIndustry">
+                    <option selected>Choose...</option>
+                    <option value="Computer">Computer and Information Systems (E.g. Computer Science, Information Systems, Other Information Technology)</option>
+                    <option value="Agriculture">Agriculture, Forestry, Fishing and Hunting</option>
+                    <option value="Mining">Mining, Quarrying, and Oil and Gas Extraction</option>
+                    <option value="Utilities">Utilities (E.g. Electric Power Generation, Transmission, Distribution, Natural Gas Distribution, Water, Sewage, Irrigation)</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Wholesale">Wholesale Trade</option>
+                    <option value="Retail">Retail Trade</option>
+                    <option value="Transportation">Transportation and Warehousing (E.g. Urban Transit Systems, Mixed Mode Transit Systems, School and Employee Bus Transportation)</option>
+                    <option value="Information">Information  (E.g. Publisher, Motion Picture, Telecommunications, Data Processing, Hosting, News Syndicates, Libraries and Archives)</option>
+                    <option value="Finance">Finance and Insurance</option>
+                    <option value="Real">Real Estate and Rental and Leasing</option>
+                    <option value="Professional">Professional, Scientific, and Technical Services (E.g. Legal Services, Offices of Lawyers, Tax Preparation Services, Industrial Design Services)</option>
+                    <option value="Management">Management of Companies and Enterprises (E.g. Offices of Bank Holding Companies, Management of Companies and Enterprises)</option>
+                    <option value="Administrative">Administrative Support, Waste Management, Remediation Services (E.g. Employment, Support Services, Private Mail Centers, Telemarketing Bureaus)</option>
+                    <option value="Educational">Educational Services</option>
+                    <option value="Health">Health Care and Social Assistance</option>
+                    <option value="Arts">Arts, Entertainment, and Recreation</option>
+                    <option value="Accommodation">Accommodation and Food Services (E.g. Hotels, Casinos, Caterers, Restaurants, Drinking Places (Alcoholic Beverages))</option>
+                    <option value="Public">Public Administration (E.g. Executive Offices, Legislative Bodies, Justice, Public Order, National Security, International Affairs)</option>
+                    <option value="Other">Other Services (E.g. Automotive & Electronics Repair & Maintainence, Personal Care Services, Cemeteries, Pet Care, Parking Lots)</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="disability">Have you been diagnosed with any disability or impairment?</label>
+                </div>
+                <select name="disabilitySelect" class="custom-select" id="disability" onchange="disabilityListed(this);">
+                    <option selected>Choose...</option>
+                    <option value="Yes">Yes; Specify if yes</option>
+                    <option value="No">No</option>
+                </select>
+                <input name="disabilityText" id="disabilityText" type="text" class="form-control" placeholder="Colorblindness" aria-label="disabilityText" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="recruited">How were you recruited for this program?</label>
+                </div>
+                <select name="recruited" class="custom-select" id="recruited">
+                    <option selected>Choose...</option>
+                    <option value="Illinois Tech">Events & Activities at Illinois Tech</option>
+                    <option value="Referred">Referred by a friend or a colleague</option>
+                    <option value="Contacted">Contacted by an associate working on this application</option>
+                    <option value="Search">Search Engine</option>
+                    <option value="Social">Social Media</option>
+                    <option value="Blog">Blog / Publication</option>
+                </select>
+            </div>
             <button class="btn btn-primary" type="submit">Register</button>
         </form>
     </div>
+    <script type="text/javascript" src="./static/js/register.js"></script>
 </body>
 </html>
