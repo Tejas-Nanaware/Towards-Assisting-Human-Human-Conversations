@@ -33,6 +33,81 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             unique: false
         },
+        Age: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        GenderSelect: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        GenderText: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        Race: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        NativeLanguageSelect: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        NativeLanguageText: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        Nationality: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        Education: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        FieldOfEducation: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        MaritalStatus: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        EmployementStatus: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        WorkIndustry: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        DisabilitySelect: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        DisabilityText: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
+        Recruited: {
+            allowNull: true,
+            type: DataTypes.STRING,
+            unique: false
+        },
         CreatedAt: {
             allowNull: false,
             type: DataTypes.DATE(6),

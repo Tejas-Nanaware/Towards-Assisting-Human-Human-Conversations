@@ -31,7 +31,7 @@ const PORT = 3000
 // Connect the database
 const sequelize = require('./sequelize');
 const assertDatabaseConnectionOk = async () => {
-    console.log(`Checking database connection...`);
+    console.log('Checking database connection...');
     try {
         await sequelize.authenticate();
         console.log('Database connection OK!');

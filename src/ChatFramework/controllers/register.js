@@ -13,51 +13,35 @@ const registerUser = (req, res, next) => {
         console.log('Did not receive post register body');
         res.sendFile(path.join(rootDir, '/public/register.html'));
     }
-    const firstName = post.firstName;
-    const lastName = post.lastName;
-    const email = post.email;
-    const password = post.password;
-    const age = post.age;
-    const genderSelect = post.genderSelect;
-    const genderText = post.genderText;
-    const selectRace = post.selectRace;
-    const nativeLanguageSelect = post.nativeLanguageSelect;
-    const nativeLanguageText = post.nativeLanguageText;
-    const nationality = post.nationality;
-    const education = post.education;
-    const fieldOfEducation = post.fieldOfEducation;
-    const maritalStatus = post.maritalStatus;
-    const employementStatus = post.employementStatus;
-    const workIndustry = post.workIndustry;
-    const disabilitySelect = post.disabilitySelect;
-    const disabilityText = post.disabilityText;
-    const recruited = post.recruited;
-    
-    console.log(firstName);
-    console.log(lastName);
-    console.log(email);
-    console.log(password);
-    console.log(age);
-    console.log(genderSelect);
-    console.log(genderText);
-    console.log(selectRace);
-    console.log(nativeLanguageSelect);
-    console.log(nativeLanguageText);
-    console.log(nationality);
-    console.log(education);
-    console.log(fieldOfEducation);
-    console.log(maritalStatus);
-    console.log(employementStatus);
-    console.log(workIndustry);
-    console.log(disabilitySelect);
-    console.log(disabilityText);
-    console.log(recruited);
+    const plainPassword = post.password;
+    const userDetails = {
+        'firstName': post.firstName,
+        'lastName': post.lastName,
+        'email': post.email,
+        'age': post.age,
+        'genderSelect': post.genderSelect,
+        'genderText': post.genderText,
+        'selectRace': post.selectRace,
+        'nativeLanguageSelect': post.nativeLanguageSelect,
+        'nativeLanguageText': post.nativeLanguageText,
+        'nationality': post.nationality,
+        'education': post.education,
+        'fieldOfEducation': post.fieldOfEducation,
+        'maritalStatus': post.maritalStatus,
+        'employementStatus': post.employementStatus,
+        'workIndustry': post.workIndustry,
+        'disabilitySelect': post.disabilitySelect,
+        'disabilityText': post.disabilityText,
+        'recruited': post.recruited
+    }
 
-    encryptPassword(password).then(result => {
-        doRegisterUser(firstName, lastName, email, result['hashedPassword'], result['salt']).then(user => {
+    encryptPassword(plainPassword).then(result => {
+        userDetails['password'] = result['hashedPassword'];
+        userDetails['passwordSalt'] = result['salt'];
+        doRegisterUser(userDetails).then(user => {
             console.log(user['dataValues']);
-            console.log(email);
-            if(user['dataValues']['Email'] === email){
+            console.log(userDetails['email']);
+            if(user['dataValues']['Email'] === userDetails['email']){
                 console.log('Registered Successfully');
                 res.redirect('/login');
             }
@@ -72,16 +56,34 @@ const registerUser = (req, res, next) => {
 const encryptPassword = async (password) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
+    console.log(password);
+    console.log(salt);
+    console.log(hashedPassword);
     return {'hashedPassword': hashedPassword, 'salt': salt};
 }
 
-const doRegisterUser = async (firstName, lastName, email, password, passwordSalt) => {
+const doRegisterUser = async (userDetails) => {
     const user = await models.users.create({
-        FirstName: firstName,
-        LastName: lastName,
-        Email: email,
-        Password: password,
-        PasswordSalt: passwordSalt,
+        FirstName: userDetails['firstName'],
+        LastName: userDetails['lastName'],
+        Email: userDetails['email'],
+        Password: userDetails['password'],
+        PasswordSalt: userDetails['passwordSalt'],
+        Age: userDetails['age'],
+        GenderSelect: userDetails['genderSelect'],
+        GenderText: userDetails['genderText'],
+        Race: userDetails['selectRace'],
+        NativeLanguageSelect: userDetails['nativeLanguageSelect'],
+        NativeLanguageText: userDetails['nativeLanguageText'],
+        Nationality: userDetails['nationality'],
+        Education: userDetails['education'],
+        FieldOfEducation: userDetails['fieldOfEducation'],
+        MaritalStatus: userDetails['maritalStatus'],
+        EmployementStatus: userDetails['employementStatus'],
+        WorkIndustry: userDetails['workIndustry'],
+        DisabilitySelect: userDetails['disabilitySelect'],
+        DisabilityText: userDetails['disabilityText'],
+        Recruited: userDetails['recruited'],
         CreatedAt: Date.now(),
         UpdatedAt: Date.now()
     });

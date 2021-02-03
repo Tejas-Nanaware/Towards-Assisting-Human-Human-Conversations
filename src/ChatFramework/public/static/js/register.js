@@ -18,10 +18,10 @@ let languageNotListed = (language) => {
 
 let isNotStudent = (isStudent) => {
     console.log(isStudent.value);
-    if(isStudent.value != 'Student') {
-        document.getElementById("workIndustryDiv").style.display = "flex";
-    } else {
+    if(isStudent.value == 'Student' || isStudent.value == 'Unemployed') {
         document.getElementById("workIndustryDiv").style.display = "none";
+    } else {
+        document.getElementById("workIndustryDiv").style.display = "flex";
     }
 }
 

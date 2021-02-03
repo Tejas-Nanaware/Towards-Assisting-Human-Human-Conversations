@@ -8,6 +8,7 @@ const getProfile = (req, res, next) => {
     console.log(req.session);
     console.log(req.session['userID']);
     console.log(req.session['email']);
+    res.send(req.session);
 
 }
 
