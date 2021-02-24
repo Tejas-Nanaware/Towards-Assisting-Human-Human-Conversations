@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Backend for chat application",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Tejas-Nanaware/Conversationally-Assistive-Chatbot.git"
+  },
+  "keywords": [
+    "ml",
+    "ai",
+    "chat"
+  ],
+  "author": "Tejas Nanaware",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tejas-Nanaware/Conversationally-Assistive-Chatbot/issues"
+  },
+  "homepage": "https://github.com/Tejas-Nanaware/Conversationally-Assistive-Chatbot#readme"
+}
