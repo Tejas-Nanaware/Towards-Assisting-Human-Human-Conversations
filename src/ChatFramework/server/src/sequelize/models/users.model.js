@@ -3,6 +3,7 @@ const Promise = require('bluebird')
 const bcrypt = Promise.promisifyAll(require('bcrypt'))
 
 const hashPassword = async (user) => {
+  console.log("in")
   const SALT_FACTOR = 10
   const salt = await bcrypt.genSalt(SALT_FACTOR)
   const hash = await bcrypt.hash(user.dataValues.Password, salt)
@@ -39,13 +40,13 @@ module.exports = (sequelize) => {
       unique: false
     },
     PasswordSalt: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.STRING,
       unique: false
     },
     Age: {
       allowNull: true,
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       unique: false
     },
     GenderSelect: {
@@ -85,7 +86,7 @@ module.exports = (sequelize) => {
     },
     FieldOfEducation: {
       allowNull: true,
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       unique: false
     },
     MaritalStatus: {
@@ -100,7 +101,7 @@ module.exports = (sequelize) => {
     },
     WorkIndustry: {
       allowNull: true,
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       unique: false
     },
     DisabilitySelect: {
@@ -130,14 +131,15 @@ module.exports = (sequelize) => {
     },
   },
   {
-    freezeTableName: true
-  },
-  {
     hooks: {
       beforeCreate: hashPassword,
       beforeUpdate: hashPassword
     }
-  })
+  },
+  {
+    freezeTableName: true
+  },
+  )
   User.prototype.comparePassword = async (password, user) => {
     const hash = await bcrypt.hash(password, user.dataValues.PasswordSalt)
     // const result = await bcrypt.compare(hash, user.dataValues.Password)

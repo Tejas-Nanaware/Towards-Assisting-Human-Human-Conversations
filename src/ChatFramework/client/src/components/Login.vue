@@ -49,10 +49,9 @@ export default {
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
         this.$router.push({
-          name: 'root'
+          name: 'profile'
         })
       } catch (error) {
-        console.log(error)
         this.snackbar.show = true
         this.snackbar.message = error.response.data.error
       }

@@ -17,7 +17,6 @@ const login = async (req, res) => {
       },
     }
   }).then(user => {
-    console.log(user)
     if (!user) {
       res.status(403).send({
         error: 'User not found'
@@ -26,7 +25,6 @@ const login = async (req, res) => {
     
     user.comparePassword(req.body.password, user)
     .then(isPasswordValid => {
-      console.log('isPasswordValid', isPasswordValid)
       
       if (!isPasswordValid) {
         res.status(403).send({
@@ -69,7 +67,45 @@ const getLists = async (req, res) => {
   }
 }
 
+const register = async (req, res) => {
+  try {
+    const user = await models.users.create({
+      FirstName: req.body.firstName,
+      LastName: req.body.lastName,
+      Email: req.body.email,
+      Password: req.body.password,
+      Age: req.body.age,
+      GenderSelect: req.body.gender,
+      GenderText: req.body.genderText,
+      Race: req.body.race,
+      NativeLanguageSelect: req.body.nativeLanguage,
+      NativeLanguageText: req.body.nativeLanguageText,
+      Nationality: req.body.nationality,
+      Education: req.body.education,
+      FieldOfEducation: req.body.fieldOfEducation,
+      MaritalStatus: req.body.maritalStatus,
+      EmployementStatus: req.body.employementStatus,
+      WorkIndustry: req.body.workIndustry,
+      DisabilitySelect: req.body.disability,
+      DisabilityText: req.body.disabilityText,
+      Recruited: req.body.recruited,
+      CreatedAt: Date.now(),
+      UpdatedAt: Date.now()
+    })
+    const userJSON = user.toJSON()
+    res.send({
+      user: userJSON,
+      token: jwtSignUser(userJSON)
+    })
+  } catch (err) {
+    res.status(400).send({
+      error: 'Error while registering ' + err
+    })
+  }
+}
+
 module.exports = {
   login,
-  getLists
+  getLists,
+  register
 }
