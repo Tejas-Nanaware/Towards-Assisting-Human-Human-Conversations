@@ -51,6 +51,25 @@ const login = async (req, res) => {
   })
 }
 
+const getLists = async (req, res) => {
+  try {
+    const result = await models.demographicQuestionnaire.findAll({
+      attributes: ['ListName', 'ListValues']
+    })
+    let lists = {}
+    result.forEach(element => {
+      let parsedString = element['ListValues'].split('<SEP>')
+      lists[element['ListName']] = parsedString
+    });
+    res.send(lists)
+  } catch (err) {
+    res.status(500).send({
+      error: 'Error occured while retreiving demographic questionnaire' + err
+    })
+  }
+}
+
 module.exports = {
-  login
+  login,
+  getLists
 }

@@ -13,19 +13,20 @@
         <v-divider></v-divider>
         <v-subheader></v-subheader>
         <v-text-field name="age" type="number" label="Age" v-model="age"></v-text-field>
-        <v-select name="gender" :items="genderList" label="Gender" v-model="gender"></v-select>
+        <v-select name="gender" :items="lists.genderList" label="Gender" v-model="gender"></v-select>
         <v-text-field name="genderText" label="Please type your Gender" v-if="gender === 'A gender identity not listed here. Please specify'" v-model="genderText"></v-text-field>
-        <v-select name="race" :items="raceList" label="Race / Ethnicity" v-model="race"></v-select>
-        <v-select name="nativeLanguage" :items="nativeLanguageList" label="Native Language" v-model="nativeLanguage"></v-select>
-        <v-text-field name="nativeLanguageText" label="Please type your Native Language" v-if="nativeLanguage === 'Other'" v-model="nativeLanguageText"></v-text-field>
-        <v-select name="nationality" :items="nationalityList" label="Nationality" v-model="nationality"></v-select>
-        <v-select name="education" :items="educationList" label="Education" v-model="education"></v-select>
-        <v-select name="fieldOfEducation" :items="fieldOfEducationList" label="Field of Education" v-model="fieldOfEducation"></v-select>
-        <v-select name="maritalStatus" :items="maritalStatusList" label="Marital Status" v-model="maritalStatus"></v-select>
-        <v-select name="employementStatus" :items="employementStatusList" label="Employement Status" v-model="employementStatus"></v-select>
-        <v-select name="workIndustry" :items="workIndustryList" label="Work Industry" v-if="employementStatus === 'Student' || employementStatus === 'Unemployed'" v-model="workIndustry" ></v-select>
-        <v-select name="disability" :items="disabilityList" label="Disability" v-model="disability"></v-select>
+        <v-select name="race" :items="lists.raceList" label="Race / Ethnicity" v-model="race"></v-select>
+        <v-select name="nativeLanguage" :items="lists.nativeLanguageList" label="Native Language" v-model="nativeLanguage"></v-select>
+        <v-text-field name="nativeLanguageText" label="Please type your Native Language" v-if="nativeLanguage === 'Others – Specify'" v-model="nativeLanguageText"></v-text-field>
+        <v-autocomplete name="nationality" :items="lists.nationalityList" label="Nationality" v-model="nationality"></v-autocomplete>
+        <v-select name="education" :items="lists.educationList" label="Education" v-model="education"></v-select>
+        <v-autocomplete name="fieldOfEducation" :items="lists.fieldOfEducationList" label="Field of Education" v-model="fieldOfEducation"></v-autocomplete>
+        <v-select name="maritalStatus" :items="lists.maritalStatusList" label="Marital Status" v-model="maritalStatus"></v-select>
+        <v-select name="employementStatus" :items="lists.employementStatusList" label="Employement Status" v-model="employementStatus"></v-select>
+        <v-autocomplete name="workIndustry" :items="lists.workIndustryList" label="Work Industry" v-if="employementStatus === 'Employed Full-Time' || employementStatus === 'Employed Part-Time'" v-model="workIndustry" ></v-autocomplete>
+        <v-select name="disability" :items="lists.disabilityList" label="Disability" v-model="disability"></v-select>
         <v-text-field name="disabilityText" label="Disability" v-if="disability === 'Yes; Specify if yes'" v-model="disabilityText"></v-text-field>
+        <v-select name="recruited" :items="lists.recruitedList" label="Recruited" v-model="recruited"></v-select>
       </div>
       <div slot="card-actions-right">
         <v-btn large elevation="1" color="primary">
@@ -40,7 +41,8 @@
 </template>
 
 <script>
-import FormLayout from '@/components/FormLayout.vue'
+import AuthenicationService from '@/services/AuthenticationService'
+import FormLayout from '@/components/FormLayout'
 export default {
   components: {
     FormLayout
@@ -52,31 +54,28 @@ export default {
       email: '',
       password: '',
       age: '',
-      genderList: [],
       gender: '',
       genderText: '',
-      raceList: [],
       race: '',
-      nativeLanguageList: [],
       nativeLanguage: '',
       nativeLanguageText: '',
-      nationalityList: [],
       nationality: '',
-      educationList: [],
       education: '',
-      fieldOfEducationList: [],
       fieldOfEducation: '',
-      maritalStatusList: [],
       maritalStatus: '',
-      employementStatusList: [],
       employementStatus: '',
-      workIndustryList: [],
       workIndustry: '',
-      disabilityList: [],
       disability: '',
       disabilityText: '',
+      recruited: '',
+      lists: {},
       error: null
     }
+  },
+  async created () {
+    const result = (await AuthenicationService.getLists()).data
+    this.lists = result
+    console.log(this.lists)
   },
   methods: {
   }
