@@ -36,7 +36,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .v-app-bar-title__content {
     width: fit-content !important;
 }

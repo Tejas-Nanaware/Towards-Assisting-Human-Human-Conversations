@@ -98,9 +98,15 @@ const register = async (req, res) => {
       token: jwtSignUser(userJSON)
     })
   } catch (err) {
-    res.status(400).send({
-      error: 'Error while registering ' + err
-    })
+    if (err.errors[0].message === 'users.Email_UNIQUE must be unique') {
+      res.status(400).send({
+        error: 'That email address is already registered'
+      })
+    } else {      
+      res.status(500).send({
+        error: 'Error while registering ' + err
+      })
+    }
   }
 }
 
