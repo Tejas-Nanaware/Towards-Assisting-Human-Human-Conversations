@@ -78,8 +78,6 @@ export default {
       error: null
     }
   },
-  mounted: {
-  },
   methods: {
   }
 }
