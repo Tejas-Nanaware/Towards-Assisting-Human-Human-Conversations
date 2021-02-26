@@ -70,7 +70,6 @@ export default {
       }
     },
     async saveConsentForm () {
-      console.log('save')
       await DownloadsService.saveConsentForm()
     }
   }
