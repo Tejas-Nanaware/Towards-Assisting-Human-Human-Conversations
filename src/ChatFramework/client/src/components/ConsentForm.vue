@@ -7,7 +7,7 @@
           <v-card-title>
             <span class="headline">Do you agree with this and provide your consent?</span>
           </v-card-title>
-          <v-card-text>
+          <v-card-text class="pb-0">
             <p>You are being asked to participate in a research study. Participation in this research study is voluntary and you may withdraw from the study at any time without penalty. Your identity will be coded to ensure confidentiality.</p>
             <p>The purpose of this study is to understand and assist text-based human conversations by identifying key parameters behind a successful conversation and using chat assistants that can help to maintain the conversational flow. As a participant in this study, you will be signing up on the online platform and will be connected to another participant or a chatbot and asked to have a conversation. You can disconnect at any time and may reconnect to converse with several participants.</p>
             <p>During this experience, you will be asked to complete questionnaires about your perceptions of your conversation and your experience using the platform. Apart from that, at the start, you will be asked to fill a demographic questionnaire.</p>
@@ -27,8 +27,8 @@
             <p><strong>AFFIRMATION OF PARTICIPANT:</strong></p>
             <p>I have read the material above and any questions I asked have been answered to my satisfaction. I agree to participate in this activity, realizing that I may withdraw without penalty at any time.</p>
             <p>Please save or print a copy of this consent form for your records.</p>
-
           </v-card-text>
+          <v-divider></v-divider>
           <v-card-actions>
             <v-btn color="blue darken-1" text href="@/assets/ConsentForm.pdf" download>
               Save
