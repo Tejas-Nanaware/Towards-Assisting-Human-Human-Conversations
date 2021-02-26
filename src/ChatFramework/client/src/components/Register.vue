@@ -1,8 +1,6 @@
 <template>
   <div>
-    <v-container>
-      <p class="mb-0">By registering you provide the consent as per the consent form</p>
-    </v-container>
+    <consent-form></consent-form>
     <form-layout title="Register">
       <div slot="card-text">
         <v-text-field name="firstName" label="First Name" v-model="firstName" required :rules="requiredRules"></v-text-field>
@@ -48,9 +46,11 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
 import FormLayout from '@/components/FormLayout'
+import ConsentForm from '@/components/ConsentForm'
 export default {
   components: {
-    FormLayout
+    FormLayout,
+    ConsentForm
   },
   data () {
     return {

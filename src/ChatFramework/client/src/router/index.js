@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Profile from '@/components/Profile'
 import MainPage from '@/components/MainPage'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
+import ConsentForm from '@/components/ConsentForm'
 
 Vue.use(Router)
 
@@ -17,7 +18,7 @@ export default new Router({
     {
       path: '/profile',
       name: 'profile',
-      component: HelloWorld
+      component: Profile
     },
     {
       path: '/login',
@@ -28,6 +29,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: ConsentForm
     }
   ]
 })
