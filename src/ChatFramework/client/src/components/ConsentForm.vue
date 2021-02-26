@@ -30,7 +30,7 @@
           </v-card-text>
           <v-divider></v-divider>
           <v-card-actions>
-            <v-btn color="blue darken-1" text href="@/assets/ConsentForm.pdf" download>
+            <v-btn color="blue darken-1" text @click="saveConsentForm">
               Save
             </v-btn>
             <v-spacer></v-spacer>
@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import DownloadsService from '@/services/DownloadsService'
 export default {
   data () {
     return {
@@ -67,6 +68,10 @@ export default {
           name: 'root'
         })
       }
+    },
+    async saveConsentForm () {
+      console.log('save')
+      await DownloadsService.saveConsentForm()
     }
   }
 }
