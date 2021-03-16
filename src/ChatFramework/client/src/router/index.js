@@ -4,7 +4,7 @@ import Profile from '@/components/Profile'
 import MainPage from '@/components/MainPage'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
-import ConsentForm from '@/components/ConsentForm'
+import Chat from '@/components/Chat'
 
 Vue.use(Router)
 
@@ -33,7 +33,7 @@ export default new Router({
     {
       path: '/chat',
       name: 'chat',
-      component: ConsentForm
+      component: Chat
     }
   ]
 })

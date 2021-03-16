@@ -25,7 +25,6 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
 import FormLayout from '@/components/FormLayout'
-import Socket from '@/services/Socket'
 
 export default {
   components: {
@@ -35,7 +34,6 @@ export default {
     return {
       email: '',
       password: '',
-      socket: Socket,
       snackbar: {
         show: false,
         message: null
@@ -51,8 +49,6 @@ export default {
         })
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.user)
-        // Add user to socket
-        this.socket.emit('ADD_USER', this.$store.state.user.ID)
         this.$router.push({
           name: 'profile'
         })
