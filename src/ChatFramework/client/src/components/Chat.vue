@@ -17,9 +17,16 @@
       </div>
       <div id="last-msg"/>
     </div>
+    <div style="display: flex; flex-direction: column; margin-top: 1em;">
+      <button
+        style="width: fit-content; height: fit-content; margin-top: 1em;"
+        v-for="(b, i) in bot_messages" v-bind:key="i"
+        @click="message=b.reply">
+          {{b.reply}}
+      </button>
+    </div>
 
     <div>
-      <label>Messages</label>
       <br>
       <v-text-field label="Message" v-model="message">
         <v-btn slot="append" elevation="1" color="primary" @click="sendMessage">
@@ -38,6 +45,7 @@ export default {
     return {
       message: '',
       messages: [],
+      bot_messages: [],
       room: '',
       // connected: false,
       socket: Socket
@@ -57,6 +65,7 @@ export default {
       if (this.message.trim()) {
         this.socket.emit('SEND_MESSAGE', {message: this.message, room: this.room, user: this.$store.state.user})
         this.message = ''
+        this.bot_messages = []
       }
     },
     startChat () {
@@ -69,15 +78,35 @@ export default {
       this.socket.on('NEW_MESSAGE', (data) => {
         if (data.user.ID === this.$store.state.user.ID) {
           console.log('My message', data.message)
-          const new_msg = {user: "me", message: data.message}
-          this.messages.push(new_msg)
+          const newMessage = {user: 'me', message: data.message}
+          this.messages.push(newMessage)
         } else {
           console.log('Senders message', data.message)
-          const new_msg = {user: "sender", message: data.message}
-          this.messages.push(new_msg)
+          const newMessage = {user: 'sender', message: data.message}
+          this.messages.push(newMessage)
+          this.getBotMessages(data.message)
         }
         console.log('New message', data)
       })
+    },
+    getBotMessages (text) {
+      const blenderBotURL = 'http://127.0.0.1:5000/api/v1/Blenderbot?text='
+      const dialoGPTURL = 'http://127.0.0.1:5000/api/v1/DialoGPT?text='
+
+      const blenderBotRequest = blenderBotURL + text
+      const dialoGPTRequest = dialoGPTURL + text
+
+      this.getBotResponseAsync(blenderBotRequest).then(data => {
+        this.bot_messages.push(data)
+      })
+      this.getBotResponseAsync(dialoGPTRequest).then(data => {
+        this.bot_messages.push(data)
+      })
+    },
+    async getBotResponseAsync (url) {
+      let response = await fetch(url)
+      let data = await response.json()
+      return data
     }
   }
 }
