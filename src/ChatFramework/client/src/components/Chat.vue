@@ -1,5 +1,9 @@
 <template>
   <v-container>
+    <in-chat-questionnaire></in-chat-questionnaire>
+    <div class="before-chat-container">
+      <v-btn @click="leaveChat" color="error">Leave Chat</v-btn>
+    </div>
     <div class="chat-container">
       <div class="message mb-2" v-for="(item,index) in messages" v-bind:key="index" :class="{own: item.user=='me'}">
         <div class="content pa-2">
@@ -29,9 +33,13 @@
 </template>
 
 <script>
+import InChatQuestionnaire from '@/components/InChatQuestionnaire'
 import Socket from '@/services/Socket'
 
 export default {
+  components: {
+    InChatQuestionnaire
+  },
   data () {
     return {
       message: '',
@@ -63,6 +71,10 @@ export default {
         this.socket.emit('SEND_MESSAGE', {message: this.message, room: this.room, user: this.$store.state.user})
         this.message = ''
         this.bot_messages = []
+        if (this.messages.length >= 3) {
+          console.log('Message Len > 3')
+          this.dialog = true
+        }
       }
     },
     startChat () {
@@ -111,6 +123,11 @@ export default {
       let response = await fetch(url)
       let data = await response.json()
       return data
+    },
+    leaveChat () {
+      this.$router.push({
+        name: 'postChat'
+      })
     }
   }
 }

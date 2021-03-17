@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Profile from '@/components/Profile'
+// import Guard from '@/router/guard'
 import MainPage from '@/components/MainPage'
-import Login from '@/components/Login'
 import Register from '@/components/Register'
+import Login from '@/components/Login'
+import Profile from '@/components/Profile'
 import Chat from '@/components/Chat'
-import Guard from '@/router/guard'
+import PostChatQuestionnaire from '@/components/PostChatQuestionnaire'
+import InChatQuestionnaire from '@/components/InChatQuestionnaire'
 
 Vue.use(Router)
 
@@ -29,14 +31,26 @@ export default new Router({
     {
       path: '/profile',
       name: 'profile',
-      component: Profile,
-      beforeEnter: Guard
+      component: Profile
+      // beforeEnter: Guard
     },
     {
       path: '/chat',
       name: 'chat',
-      component: Chat,
-      beforeEnter: Guard
+      component: Chat
+      // beforeEnter: Guard
+    },
+    {
+      path: '/postChat',
+      name: 'postChat',
+      component: PostChatQuestionnaire
+      // beforeEnter: Guard
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: InChatQuestionnaire
+      // beforeEnter: Guard
     }
   ]
 })
