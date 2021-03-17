@@ -63,7 +63,7 @@ export default {
       conversationColor: null,
       conversationCount: 0,
       disableConversationButtons: false,
-      buttonColors: ['red', 'yellow', 'green'],
+      buttonColors: ['red', 'yellow darken-2', 'green'],
       socket: Socket
     }
   },
@@ -111,10 +111,10 @@ export default {
           const newMessage = {user: 'sender', message: data.message}
           this.messages.push(newMessage)
           this.getBotMessages(data.message)
+          this.disableAdvisorButtons = false
+          this.disableConversationButtons = false
         }
         console.log('New message', data)
-        this.disableAdvisorButtons = false
-        this.disableConversationButtons = false
       })
     },
     partnerLeftRoom () {
