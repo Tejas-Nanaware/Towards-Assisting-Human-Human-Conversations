@@ -92,6 +92,12 @@ const init = async () => {
       // console.log(io.sockets.adapter.rooms[data.room])
     })
 
+    socket.on('LEAVE_ROOM', (roomName) => {
+      socket.leave(roomName)
+      console.log(socket.id, 'leaves', roomName)
+      io.sockets.in(roomName).emit('LEFT_ROOM', socket.id)
+    })
+
     // Remove socket connection of the disconnected user
     socket.on('disconnect', () => {
       for (let index = 0; index < users.length; index++) {
