@@ -1,8 +1,7 @@
 <template>
   <v-container>
-    <in-chat-questionnaire></in-chat-questionnaire>
     <div class="before-chat-container">
-      <v-btn @click="leaveChat" color="error">Leave Chat</v-btn>
+      <v-btn @click="leaveChat" icon color="error" style="float: right;">X</v-btn>
     </div>
     <div class="chat-container">
       <div class="message mb-2" v-for="(item,index) in messages" v-bind:key="index" :class="{own: item.user=='me'}">
@@ -13,6 +12,7 @@
     </div>
 
     <div class="bot-replies d-flex justify-space-around ma-2">
+      Suggestions will be loaded here when you get new messages
       <button class="bot-button ma-2 pa-1" elevation="24"
         v-for="(b, i) in bot_messages" v-bind:key="i"
         @click="message=b.reply"
@@ -23,23 +23,30 @@
 
     <div>
       <br>
-      <v-text-field label="Message" v-model="message">
+      <v-text-field label="Message" v-model="message" v-on:keyup.enter="sendMessage">
         <v-btn :disabled="disableSend" slot="append" color="primary" @click="sendMessage">
           <v-icon dark>mdi-send</v-icon>
         </v-btn>
       </v-text-field>
     </div>
+    <div class="d-flex justify-space-around">
+      <p>How's it going?</p>
+      <p>
+        AdvisorBot:
+        <v-btn rounded elevation="0" :color="advisorColor" :disabled="disableAdvisorButtons" @click="advisorClick('up')"><v-icon dark>mdi-thumb-up</v-icon></v-btn>
+        <v-btn rounded elevation="0" :color="advisorColor" :disabled="disableAdvisorButtons" @click="advisorClick('down')"><v-icon dark>mdi-thumb-down</v-icon></v-btn>
+        Conversation Quality:
+        <v-btn rounded elevation="0" :color="conversationColor" :disabled="disableConversationButtons" @click="conversationClick('up')"><v-icon dark>mdi-thumb-up</v-icon></v-btn>
+        <v-btn rounded elevation="0" :color="conversationColor" :disabled="disableConversationButtons" @click="conversationClick('down')"><v-icon dark>mdi-thumb-down</v-icon></v-btn>
+      </p>
+    </div>
   </v-container>
 </template>
 
 <script>
-import InChatQuestionnaire from '@/components/InChatQuestionnaire'
 import Socket from '@/services/Socket'
 
 export default {
-  components: {
-    InChatQuestionnaire
-  },
   data () {
     return {
       message: '',
@@ -48,6 +55,15 @@ export default {
       room: '',
       database: [],
       disableSend: true,
+      advisorStatus: [],
+      advisorColor: null,
+      advisorCount: 0,
+      disableAdvisorButtons: false,
+      conversationStatus: [],
+      conversationColor: null,
+      conversationCount: 0,
+      disableConversationButtons: false,
+      buttonColors: ['red', 'yellow', 'green'],
       socket: Socket
     }
   },
@@ -97,6 +113,8 @@ export default {
           this.getBotMessages(data.message)
         }
         console.log('New message', data)
+        this.disableAdvisorButtons = false
+        this.disableConversationButtons = false
       })
     },
     partnerLeftRoom () {
@@ -128,6 +146,42 @@ export default {
       this.$router.push({
         name: 'postChat'
       })
+    },
+    advisorClick (status) {
+      this.advisorStatus.push({Status: status, CreatedAt: Date.now()})
+      if (status === 'up') {
+        this.advisorCount += 1
+      } else {
+        this.advisorCount -= 1
+      }
+      if (this.advisorCount < 0) {
+        this.advisorColor = this.buttonColors[0]
+      } else {
+        if (this.advisorCount > 0) {
+          this.advisorColor = this.buttonColors[2]
+        } else {
+          this.advisorColor = this.buttonColors[1]
+        }
+      }
+      this.disableAdvisorButtons = true
+    },
+    conversationClick (status) {
+      this.conversationStatus.push({Status: status, CreatedAt: Date.now()})
+      if (status === 'up') {
+        this.conversationCount += 1
+      } else {
+        this.conversationCount -= 1
+      }
+      if (this.conversationCount < 0) {
+        this.conversationColor = this.buttonColors[0]
+      } else {
+        if (this.conversationCount > 0) {
+          this.conversationColor = this.buttonColors[2]
+        } else {
+          this.conversationColor = this.buttonColors[1]
+        }
+      }
+      this.disableConversationButtons = true
     }
   }
 }

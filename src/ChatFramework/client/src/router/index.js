@@ -7,7 +7,6 @@ import Login from '@/components/Login'
 import Profile from '@/components/Profile'
 import Chat from '@/components/Chat'
 import PostChatQuestionnaire from '@/components/PostChatQuestionnaire'
-import InChatQuestionnaire from '@/components/InChatQuestionnaire'
 
 Vue.use(Router)
 
@@ -44,12 +43,6 @@ export default new Router({
       path: '/postChat',
       name: 'postChat',
       component: PostChatQuestionnaire
-      // beforeEnter: Guard
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: InChatQuestionnaire
       // beforeEnter: Guard
     }
   ]

@@ -27,14 +27,18 @@ let queue = []
 const pairUsers = (socket) => {
   if (queue.length > 0) {
     let peer = queue.pop()
-    // console.log(peer.id + ' was popped from queue')
-    // console.log('Queue', queue)
-    let room = socket.id + '#' + peer.id
-    peer.join(room)
-    socket.join(room)
-    console.log(socket.id + ' and ' + peer.id + ' joined room ' + room)
-    peer.emit('START_CHAT', { 'name': socket.id, 'room': room })
-    socket.emit('START_CHAT', { 'name': peer.id, 'room': room })
+    if (peer === socket) {
+      queue.push(socket)
+    } else {
+      // console.log(peer.id + ' was popped from queue')
+      // console.log('Queue', queue)
+      let room = socket.id + '#' + peer.id
+      peer.join(room)
+      socket.join(room)
+      console.log(socket.id + ' and ' + peer.id + ' joined room ' + room)
+      peer.emit('START_CHAT', { 'name': socket.id, 'room': room })
+      socket.emit('START_CHAT', { 'name': peer.id, 'room': room })
+    }
   } else {
     queue.push(socket)
     console.log(socket.id + ' was pushed to queue')
