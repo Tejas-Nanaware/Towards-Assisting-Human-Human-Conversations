@@ -55,7 +55,7 @@ export default {
   },
   beforeDestroy () {
     this.socket.emit('LEAVE_ROOM', this.room)
-    this.socket.disconnect()
+    // this.socket.disconnect()
   },
   methods: {
     sendMessage () {

@@ -37,7 +37,7 @@ const pairUsers = (socket) => {
     socket.emit('START_CHAT', { 'name': peer.id, 'room': room })
   } else {
     queue.push(socket)
-    // console.log(socket.id + ' was pushed to queue')
+    console.log(socket.id + ' was pushed to queue')
     // console.log('Queue', queue)
   }
 }
@@ -76,8 +76,8 @@ const init = async () => {
           user: user
         })
         isAdded = true
-        pairUsers(socket)
       }
+      pairUsers(socket)
     })
 
     socket.on('SEND_MESSAGE', (data) => {
@@ -106,6 +106,7 @@ const init = async () => {
           users.splice(index, 1)
         }
       }
+      socket.disconnect(true)
     })
   })
 }
