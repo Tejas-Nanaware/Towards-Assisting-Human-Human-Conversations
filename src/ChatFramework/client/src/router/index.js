@@ -5,6 +5,7 @@ import MainPage from '@/components/MainPage'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import Chat from '@/components/Chat'
+import Guard from '@/router/guard'
 
 Vue.use(Router)
 
@@ -14,11 +15,6 @@ export default new Router({
       path: '/',
       name: 'root',
       component: MainPage
-    },
-    {
-      path: '/profile',
-      name: 'profile',
-      component: Profile
     },
     {
       path: '/login',
@@ -31,9 +27,16 @@ export default new Router({
       component: Register
     },
     {
+      path: '/profile',
+      name: 'profile',
+      component: Profile,
+      beforeEnter: Guard
+    },
+    {
       path: '/chat',
       name: 'chat',
-      component: Chat
+      component: Chat,
+      beforeEnter: Guard
     }
   ]
 })
