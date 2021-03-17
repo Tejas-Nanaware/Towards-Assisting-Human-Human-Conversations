@@ -1,5 +1,16 @@
 <template>
   <v-container>
+    <div class="chat-container">
+      <div class="message" v-for="(item,index) in messages" v-bind:key="index" :class="{own: item.user=='me'}">
+        <div style="margin-top: 5px"></div>
+        <div class="content">
+          <i>{{item.message}}</i>
+        </div>
+      </div>
+    </div>
+
+
+
     <div id= "chat-window" class="chat-window">
       <div class="chat-msg" v-for="(item, index) in messages" v-bind:key="index">
         <div v-if="item.user=='me'">
@@ -47,7 +58,7 @@ export default {
       messages: [],
       bot_messages: [],
       room: '',
-      // connected: false,
+      database: [],
       socket: Socket
     }
   },
@@ -113,6 +124,37 @@ export default {
 </script>
 
 <style scoped>
+.chat-container{
+  box-sizing: border-box;
+  height: calc(100vh - 9.5rem);
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+.message{
+  margin-bottom: 3px;
+}
+.message.own{
+  text-align: right;
+}
+.message.own .content{
+  background-color: lightskyblue;
+}
+.chat-container .content{
+  padding: 8px;
+  background-color: lightgreen;
+  border-radius: 10px;
+  display:inline-block;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
+  max-width: 50%;
+  word-wrap: break-word;
+  }
+@media (max-width: 480px) {
+  .chat-container .content{
+    max-width: 60%;
+  }
+}
+
 .home{
     display: flex;
 }
