@@ -47,7 +47,7 @@ const login = async (req, res) => {
     res.status(400).send({
       error: 'Error while logging in' + err
     })
-    ExceptionController.addError(err.message, 'server.AuthenticationController.login.comparePassword', err, Date.now(), Date.now())
+    ExceptionController.addError(err.message, 'server.AuthenticationController.login.comparePassword', err, Date.now(), Date.now(), models)
   })
 }
 
@@ -66,7 +66,7 @@ const getLists = async (req, res) => {
     res.status(500).send({
       error: 'Error occured while retreiving demographic questionnaire' + err
     })
-    ExceptionController.addError(err.message, 'server.AuthenticationController.getLists', err, Date.now(), Date.now())
+    ExceptionController.addError(err.message, 'server.AuthenticationController.getLists', err, Date.now(), Date.now(), models)
   }
 }
 

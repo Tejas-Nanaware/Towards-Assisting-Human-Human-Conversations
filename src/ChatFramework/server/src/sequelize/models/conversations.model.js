@@ -1,4 +1,5 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize')
+// const { users } = require('./users.model')
 
 module.exports = (sequelize) => {
   sequelize.define('conversations', {
@@ -11,7 +12,11 @@ module.exports = (sequelize) => {
     UserID: {
       allowNull: false,
       type: DataTypes.INTEGER,
-      unique: false
+      unique: false,
+      references: {
+        model: 'users',
+        key: 'ID'
+      }
     },
     PeerID: {
       allowNull: false,

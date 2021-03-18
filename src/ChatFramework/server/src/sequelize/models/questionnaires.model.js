@@ -1,4 +1,5 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize')
+// const { conversations } = require('./conversations.model')
 
 module.exports = (sequelize) => {
   sequelize.define('questionnaires', {
@@ -11,7 +12,11 @@ module.exports = (sequelize) => {
     ConversationID: {
       allowNull: false,
       type: DataTypes.INTEGER,
-      unique: true
+      unique: true,
+      references: {
+        model: 'conversations',
+        key: 'ID'
+      }
     },
     ComfortableConversation: {
       allowNull: false,
