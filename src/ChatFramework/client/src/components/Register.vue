@@ -17,7 +17,7 @@
         <v-select name="nativeLanguage" :items="lists.nativeLanguageList" label="Native Language" v-model="nativeLanguage" required :rules="requiredRules"></v-select>
         <v-text-field name="nativeLanguageText" label="Please type your Native Language" v-if="nativeLanguage === 'Others – Specify'" v-model="nativeLanguageText" required :rules="requiredRules"></v-text-field>
         <v-autocomplete name="nationality" :items="lists.nationalityList" label="Nationality" v-model="nationality" required :rules="requiredRules"></v-autocomplete>
-        <v-select name="education" :items="lists.educationList" label="Education" v-model="education" required :rules="requiredRules"></v-select>
+        <v-select name="education" :items="lists.educationList" label="Level of Education" v-model="education" required :rules="requiredRules"></v-select>
         <v-autocomplete name="fieldOfEducation" :items="lists.fieldOfEducationList" label="Field of Education" v-model="fieldOfEducation" required :rules="requiredRules"></v-autocomplete>
         <v-select name="maritalStatus" :items="lists.maritalStatusList" label="Marital Status" v-model="maritalStatus" required :rules="requiredRules"></v-select>
         <v-select name="employementStatus" :items="lists.employementStatusList" label="Employement Status" v-model="employementStatus" required :rules="requiredRules"></v-select>
@@ -47,6 +47,7 @@
 import AuthenticationService from '@/services/AuthenticationService'
 import FormLayout from '@/components/FormLayout'
 import ConsentForm from '@/components/ConsentForm'
+
 export default {
   components: {
     FormLayout,

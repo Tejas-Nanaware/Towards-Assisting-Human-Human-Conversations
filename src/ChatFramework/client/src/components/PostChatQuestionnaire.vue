@@ -15,7 +15,7 @@
         </template>
       </v-slider>
       <p class="question-text">There were times when I felt uncomfortable during conversation.</p>
-      <v-slider v-model="feltUncomfortable" thumb-label :color="trackColors[feltUncomfortable+4]" :track-color="trackColors[feltUncomfortable+4]" min=-4 max=5>
+      <v-slider v-model="feltUncomfortable" thumb-label :color="trackColors[9-(feltUncomfortable+4)]" :track-color="trackColors[9-(feltUncomfortable+4)]" min=-4 max=5>
         <template v-slot:append>
           Agree
         </template>
@@ -23,7 +23,7 @@
           Disagree
         </template>
         <template v-slot:thumb-label="{ value }">
-          {{ satisfactionEmojis[value+4] }}
+          {{ satisfactionEmojis[9-(value+4)] }}
         </template>
       </v-slider>
       <p class="question-text">My conversational partner understood me very well.</p>
@@ -63,7 +63,7 @@
         </template>
       </v-slider>
       <p class="question-text">The conversational assistance was distracting or annoying.</p>
-      <v-slider v-model="assistanceAnnoying" thumb-label :color="trackColors[assistanceAnnoying+4]" :track-color="trackColors[assistanceAnnoying+4]" min=-4 max=5>
+      <v-slider v-model="assistanceAnnoying" thumb-label :color="trackColors[9-(assistanceAnnoying+4)]" :track-color="trackColors[9-(assistanceAnnoying+4)]" min=-4 max=5>
         <template v-slot:append>
           Agree
         </template>
@@ -71,7 +71,7 @@
           Disagree
         </template>
         <template v-slot:thumb-label="{ value }">
-          {{ satisfactionEmojis[value+4] }}
+          {{ satisfactionEmojis[9-(value+4)] }}
         </template>
       </v-slider>
       <p class="question-text">The conversational assistance was able to understand the context and was able to provide accurate suggestions.</p>
@@ -146,7 +146,9 @@
 </template>
 
 <script>
+import QuestionnaireService from '@/services/QuestionnaireService'
 import FormLayout from '@/components/FormLayout'
+
 export default {
   components: {
     FormLayout
@@ -179,8 +181,30 @@ export default {
   },
   methods: {
     async submitResponses () {
-      console.log('submitting')
-      console.log('conv was', this.$store.state.conversationID)
+      try {
+        await QuestionnaireService.sendQuestionnaireResponses({
+          conversationID: this.$store.state.conversationID,
+          comfortableConversation: this.comfortableConversation,
+          feltUncomfortable: this.feltUncomfortable,
+          partnerUnderstood: this.partnerUnderstood,
+          iUnderstood: this.iUnderstood,
+          assistanceHelpful: this.assistanceHelpful,
+          assistanceAnnoying: this.assistanceAnnoying,
+          assistanceAccurate: this.assistanceAccurate,
+          assistanceWillHelp: this.assistanceWillHelp,
+          iEnjoyed: this.iEnjoyed,
+          iRecommend: this.iRecommend,
+          bestParts: this.bestParts,
+          uncomfortableAspects: this.uncomfortableAspects,
+          suggestions: this.suggestions
+        })
+        this.$router.push({
+          name: 'profile'
+        })
+      } catch (error) {
+        this.snackbar.show = true
+        this.snackbar.message = error.response.data.error
+      }
     }
   }
 }
