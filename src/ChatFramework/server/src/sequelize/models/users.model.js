@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 const Promise = require('bluebird')
 const bcrypt = Promise.promisifyAll(require('bcrypt'))
-const ExceptionController = require('../../controllers/ExceptionController')
+const ExceptionController = require('../../controllers/ErrorController')
 
 const hashPassword = async (user) => {
   try {

@@ -2,7 +2,7 @@ const { models } = require('../sequelize')
 const { Op } = require('sequelize')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
-const ExceptionController = require('./ExceptionController')
+const ExceptionController = require('./ErrorController')
 
 const jwtSignUser = (user) => {
   return jwt.sign(user, config.authentication.jwtSecret, {

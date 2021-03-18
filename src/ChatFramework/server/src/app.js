@@ -4,7 +4,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const sequelize = require('./sequelize')
 const config = require('./config/config')
-const ExceptionController = require('./controllers/ExceptionController')
+const ExceptionController = require('./controllers/ErrorController')
 
 const app = express()
 const http = require('http').Server(app)

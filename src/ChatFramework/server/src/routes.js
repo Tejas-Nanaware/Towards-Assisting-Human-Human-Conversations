@@ -1,7 +1,7 @@
 const AuthenticationController = require('./controllers/AuthenticationController')
 const AuthenticationControllerPolicy = require('./policies/AuthenticationControllerPolicy')
 const DownloadsController = require('./controllers/DownloadsController')
-const ExceptionController = require('./controllers/ExceptionController')
+const ExceptionController = require('./controllers/ErrorController')
 
 module.exports = (app) => {
   app.get('/saveConsentForm', DownloadsController.saveConsentForm)
