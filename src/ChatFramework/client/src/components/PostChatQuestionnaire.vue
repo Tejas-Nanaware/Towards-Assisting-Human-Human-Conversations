@@ -151,6 +151,9 @@ export default {
   components: {
     FormLayout
   },
+  mounted () {
+    console.log('ConvID', this.$store.state.conversationID)
+  },
   data () {
     return {
       satisfactionEmojis: ['😭', '😢', '☹️', '🙁', '😐', '🙂', '😊', '😁', '😄', '😍'],
@@ -177,6 +180,7 @@ export default {
   methods: {
     async submitResponses () {
       console.log('submitting')
+      console.log('conv was', this.$store.state.conversationID)
     }
   }
 }

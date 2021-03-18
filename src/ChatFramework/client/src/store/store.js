@@ -8,7 +8,8 @@ export const store = new Vuex.Store({
   state: {
     token: null,
     user: null,
-    isUserLoggedIn: false
+    isUserLoggedIn: false,
+    conversationID: 0
   },
   mutations: {
     setToken (state, token) {
@@ -21,6 +22,9 @@ export const store = new Vuex.Store({
     },
     setUser (state, user) {
       state.user = user
+    },
+    setConversationID (state, conversationID) {
+      state.conversationID = conversationID
     }
   },
   actions: {
@@ -29,6 +33,9 @@ export const store = new Vuex.Store({
     },
     setUser ({commit}, user) {
       commit('setUser', user)
+    },
+    setConversationID ({commit}, conversationID) {
+      commit('setConversationID', conversationID)
     }
   }
 })

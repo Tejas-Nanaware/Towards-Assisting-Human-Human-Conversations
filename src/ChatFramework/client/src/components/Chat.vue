@@ -14,8 +14,8 @@
     <div class="bot-replies d-flex justify-space-around ma-2">
       Suggestions will be loaded here when you get new messages
       <button class="bot-button ma-2 pa-1" elevation="24"
-        v-for="(b, i) in bot_messages" v-bind:key="i"
-        @click="message=b.reply"
+        v-for="(b, i) in botMessages" v-bind:key="i"
+        @click="botMessageClick(b)"
       >
         {{b.reply}}
       </button>
@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import ChatService from '@/services/ChatService'
 import Socket from '@/services/Socket'
 
 export default {
@@ -51,11 +52,11 @@ export default {
     return {
       message: '',
       messages: [],
-      bot_messages: [],
+      botMessages: [],
       room: '',
       peerUserID: 0,
       peerSocketID: null,
-      database: [],
+      nameOfBotClicked: '',
       disableSend: true,
       advisorStatus: [],
       advisorColor: null,
@@ -72,7 +73,6 @@ export default {
   created () {
     // Add user to socket
     this.socket.emit('ADD_USER', this.$store.state.user.ID)
-    console.log('Socket ID: ', this.socket.id)
     this.startChat()
   },
   mounted () {
@@ -81,6 +81,7 @@ export default {
   },
   beforeDestroy () {
     this.socket.emit('LEAVE_ROOM', this.room)
+    this.sendChatData()
     // this.socket.disconnect()
   },
   methods: {
@@ -88,32 +89,28 @@ export default {
       if (this.message.trim()) {
         this.socket.emit('SEND_MESSAGE', {message: this.message, room: this.room, senderID: this.$store.state.user.ID})
         this.message = ''
-        this.bot_messages = []
-        if (this.messages.length >= 3) {
-          console.log('Message Len > 3')
-          this.dialog = true
-        }
+        this.botMessages = []
       }
     },
     startChat () {
       this.socket.on('START_CHAT', (data) => {
         this.room = data.room
-        this.peerUserID = data.peer
+        this.peerUserID = data.peerUserID
         this.peerSocketID = data.peerSocketID
-        console.log('Room', this.room)
-        console.log('USER', this.$store.state.user.ID)
-        console.log(data)
         this.disableSend = false
       })
     },
     newMessage () {
       this.socket.on('NEW_MESSAGE', (data) => {
-        const newMessage = {senderID: data.senderID, message: data.message}
+        let newMessage = {senderID: data.senderID, message: data.message, botSuggestions: this.botMessages, createdAt: Date.now()}
+        if (this.nameOfBotClicked !== '') {
+          newMessage['nameOfBot'] = this.nameOfBotClicked
+          this.nameOfBotClicked = ''
+        }
         this.messages.push(newMessage)
         if (data.senderID === this.$store.state.user.ID) {
           console.log('My message', data.message)
         } else {
-          console.log('Senders message', data.message)
           this.getBotMessages(data.message)
           this.disableAdvisorButtons = false
           this.disableConversationButtons = false
@@ -122,9 +119,12 @@ export default {
     },
     partnerLeftRoom () {
       this.socket.on('LEFT_ROOM', (data) => {
-        console.log(data, 'has left')
         this.disableSend = true
       })
+    },
+    botMessageClick (bot) {
+      this.nameOfBotClicked = bot.bot_name
+      this.message = bot.reply
     },
     getBotMessages (text) {
       const blenderBotURL = 'http://127.0.0.1:5000/api/v1/Blenderbot?text='
@@ -134,10 +134,10 @@ export default {
       const dialoGPTRequest = dialoGPTURL + text
 
       this.getBotResponseAsync(blenderBotRequest).then(data => {
-        this.bot_messages.push(data)
+        this.botMessages.push(data)
       })
       this.getBotResponseAsync(dialoGPTRequest).then(data => {
-        this.bot_messages.push(data)
+        this.botMessages.push(data)
       })
     },
     async getBotResponseAsync (url) {
@@ -185,6 +185,21 @@ export default {
         }
       }
       this.disableConversationButtons = true
+    },
+    async sendChatData () {
+      try {
+        const response = await ChatService.sendChatData({
+          userID: this.$store.state.user.ID,
+          peerID: this.peerUserID,
+          messages: this.messages,
+          advisorStatus: this.advisorStatus,
+          conversationStatus: this.conversationStatus
+        })
+        this.$store.dispatch('setConversationID', response.data.conversation.ID)
+        console.log(response)
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 }
