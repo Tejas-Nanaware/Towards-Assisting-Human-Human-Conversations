@@ -4,7 +4,7 @@
       <v-btn @click="leaveChat" icon color="error" style="float: right;">X</v-btn>
     </div>
     <div class="chat-container">
-      <div class="message mb-2" v-for="(item,index) in messages" v-bind:key="index" :class="{own: item.user=='me'}">
+      <div class="message mb-2" v-for="(item,index) in messages" v-bind:key="index" :class="{own: item.senderID === $store.state.user.ID}">
         <div class="content pa-2">
           <i>{{item.message}}</i>
         </div>
@@ -53,6 +53,8 @@ export default {
       messages: [],
       bot_messages: [],
       room: '',
+      peerUserID: 0,
+      peerSocketID: null,
       database: [],
       disableSend: true,
       advisorStatus: [],
@@ -69,7 +71,7 @@ export default {
   },
   created () {
     // Add user to socket
-    this.socket.emit('ADD_USER', this.$store.state.user)
+    this.socket.emit('ADD_USER', this.$store.state.user.ID)
     console.log('Socket ID: ', this.socket.id)
     this.startChat()
   },
@@ -84,7 +86,7 @@ export default {
   methods: {
     sendMessage () {
       if (this.message.trim()) {
-        this.socket.emit('SEND_MESSAGE', {message: this.message, room: this.room, user: this.$store.state.user})
+        this.socket.emit('SEND_MESSAGE', {message: this.message, room: this.room, senderID: this.$store.state.user.ID})
         this.message = ''
         this.bot_messages = []
         if (this.messages.length >= 3) {
@@ -96,25 +98,26 @@ export default {
     startChat () {
       this.socket.on('START_CHAT', (data) => {
         this.room = data.room
+        this.peerUserID = data.peer
+        this.peerSocketID = data.peerSocketID
         console.log('Room', this.room)
+        console.log('USER', this.$store.state.user.ID)
+        console.log(data)
         this.disableSend = false
       })
     },
     newMessage () {
       this.socket.on('NEW_MESSAGE', (data) => {
-        if (data.user.ID === this.$store.state.user.ID) {
+        const newMessage = {senderID: data.senderID, message: data.message}
+        this.messages.push(newMessage)
+        if (data.senderID === this.$store.state.user.ID) {
           console.log('My message', data.message)
-          const newMessage = {user: 'me', message: data.message}
-          this.messages.push(newMessage)
         } else {
           console.log('Senders message', data.message)
-          const newMessage = {user: 'sender', message: data.message}
-          this.messages.push(newMessage)
           this.getBotMessages(data.message)
           this.disableAdvisorButtons = false
           this.disableConversationButtons = false
         }
-        console.log('New message', data)
       })
     },
     partnerLeftRoom () {

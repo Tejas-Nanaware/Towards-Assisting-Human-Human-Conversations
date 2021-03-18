@@ -25,24 +25,25 @@ require('./routes')(app)
 let users = []
 let queue = []
 
-const pairUsers = (socket) => {
+const pairUsers = (data) => {
   if (queue.length > 0) {
     let peer = queue.pop()
-    if (peer === socket) {
-      queue.push(socket)
+    if (peer.socket.id === data.socket.id) {
+      queue.push(data)
     } else {
       // console.log(peer.id + ' was popped from queue')
       // console.log('Queue', queue)
-      let room = socket.id + '#' + peer.id
-      peer.join(room)
-      socket.join(room)
-      console.log(socket.id + ' and ' + peer.id + ' joined room ' + room)
-      peer.emit('START_CHAT', { 'name': socket.id, 'room': room })
-      socket.emit('START_CHAT', { 'name': peer.id, 'room': room })
+      let room = data.socket.id + '#' + peer.socket.id
+      console.log('Picked peer', peer.socket.id)
+      peer.socket.join(room)
+      data.socket.join(room)
+      console.log(data.socket.id + ' and ' + peer.socket.id + ' joined room ' + room)
+      peer.socket.emit('START_CHAT', { 'peerSocketID': data.socket.id, 'room': room, 'peerUserID': data.userID })
+      data.socket.emit('START_CHAT', { 'peerSocketID': peer.socket.id, 'room': room, 'peerUserID': peer.userID })
     }
   } else {
-    queue.push(socket)
-    console.log(socket.id + ' was pushed to queue')
+    queue.push(data)
+    console.log(data.socket.id + ' was pushed to queue')
     // console.log('Queue', queue)
   }
 }
@@ -75,16 +76,19 @@ const init = async () => {
     // console.log('Socket Connection Established with ID :' + socket.id)
     // Add user to socket
     let isAdded = false
-    socket.on('ADD_USER', (user) => {
+    socket.on('ADD_USER', (userID) => {
       try {
         if (!isAdded) {
           users.push({
             socketID: socket.id,
-            user: user
+            userID: userID
           })
           isAdded = true
         }
-        pairUsers(socket)
+        pairUsers({
+          socket: socket,
+          userID: userID
+        })
       } catch (error) {
         ExceptionController.addError(error.message, 'server.app.socket.ADD_USER', error, Date.now(), Date.now())
       }
