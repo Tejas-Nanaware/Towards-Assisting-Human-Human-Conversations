@@ -1,19 +1,13 @@
 const { DataTypes } = require('sequelize');
 const Promise = require('bluebird')
 const bcrypt = Promise.promisifyAll(require('bcrypt'))
-const ExceptionController = require('../../controllers/ErrorController')
 
 const hashPassword = async (user) => {
-  try {
-    console.log("in")
-    const SALT_FACTOR = 10
-    const salt = await bcrypt.genSalt(SALT_FACTOR)
-    const hash = await bcrypt.hash(user.dataValues.Password, salt)
-    user.setDataValue('PasswordSalt', salt)
-    user.setDataValue('Password', hash)    
-  } catch (error) {
-    ExceptionController.addError(error.message, 'server.users.model.hashPassword', error, Date.now(), Date.now())
-  }
+  const SALT_FACTOR = 10
+  const salt = await bcrypt.genSalt(SALT_FACTOR)
+  const hash = await bcrypt.hash(user.dataValues.Password, salt)
+  user.setDataValue('PasswordSalt', salt)
+  user.setDataValue('Password', hash)
 }
 
 module.exports = (sequelize) => {
@@ -146,18 +140,13 @@ module.exports = (sequelize) => {
   },
   )
   User.prototype.comparePassword = async (password, user) => {
-    try {
-      const hash = await bcrypt.hash(password, user.dataValues.PasswordSalt)
-      // const result = await bcrypt.compare(hash, user.dataValues.Password)
-      // console.log('result', result)
-      // return result
-      if (hash === user.dataValues.Password) {
-        return true
-      } else {
-        return false
-      }      
-    } catch (error) {
-      ExceptionController.addError(error.message, 'server.users.model.comparePassword', error, Date.now(), Date.now())
+    const hash = await bcrypt.hash(password, user.dataValues.PasswordSalt)
+    // const result = await bcrypt.compare(hash, user.dataValues.Password)
+    // return result
+    if (hash === user.dataValues.Password) {
+      return true
+    } else {
+      return false
     }
   }
   return User

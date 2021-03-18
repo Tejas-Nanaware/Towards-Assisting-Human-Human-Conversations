@@ -7,7 +7,10 @@ module.exports = {
     options: {
       dialect: process.env.DB_DIALECT || 'mysql',
       host: process.env.DB_HOST || 'host',
-      logging: true,
+      // logging: function (str) {
+      //   console.log(str)
+      // },
+      logging: false,
       define: {
         timestamps: false
       },
