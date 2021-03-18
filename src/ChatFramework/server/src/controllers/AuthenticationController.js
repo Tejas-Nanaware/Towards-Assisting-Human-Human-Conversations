@@ -2,6 +2,7 @@ const { models } = require('../sequelize')
 const { Op } = require('sequelize')
 const jwt = require('jsonwebtoken')
 const config = require('../config/config')
+const ExceptionController = require('./ExceptionController')
 
 const jwtSignUser = (user) => {
   return jwt.sign(user, config.authentication.jwtSecret, {
@@ -46,6 +47,7 @@ const login = async (req, res) => {
     res.status(400).send({
       error: 'Error while logging in' + err
     })
+    ExceptionController.addError(err.message, 'server.AuthenticationController.login.comparePassword', err, Date.now(), Date.now())
   })
 }
 
@@ -64,6 +66,7 @@ const getLists = async (req, res) => {
     res.status(500).send({
       error: 'Error occured while retreiving demographic questionnaire' + err
     })
+    ExceptionController.addError(err.message, 'server.AuthenticationController.getLists', err, Date.now(), Date.now())
   }
 }
 
@@ -102,10 +105,11 @@ const register = async (req, res) => {
       res.status(400).send({
         error: 'That email address is already registered'
       })
-    } else {      
+    } else {
       res.status(500).send({
         error: 'Error while registering ' + err
       })
+      ExceptionController.addError(err.message, 'server.AuthenticationController.register', err, Date.now(), Date.now(), models)
     }
   }
 }

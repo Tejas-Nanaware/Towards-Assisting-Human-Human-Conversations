@@ -4,6 +4,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const sequelize = require('./sequelize')
 const config = require('./config/config')
+const ExceptionController = require('./controllers/ExceptionController')
 
 const app = express()
 const http = require('http').Server(app)
@@ -54,6 +55,7 @@ const assertDatabaseConnectionOk = async () => {
   } catch (error) {
     console.log('Unable to connect to the database:')
     console.log(error.message)
+    ExceptionController.addError(error.message, 'server.app.assertDatabaseConnectionOk', error, Date.now(), Date.now())
     process.exit(1)
   }
 }
@@ -74,43 +76,51 @@ const init = async () => {
     // Add user to socket
     let isAdded = false
     socket.on('ADD_USER', (user) => {
-      if (!isAdded) {
-        users.push({
-          socketID: socket.id,
-          user: user
-        })
-        isAdded = true
+      try {
+        if (!isAdded) {
+          users.push({
+            socketID: socket.id,
+            user: user
+          })
+          isAdded = true
+        }
+        pairUsers(socket)
+      } catch (error) {
+        ExceptionController.addError(error.message, 'server.app.socket.ADD_USER', error, Date.now(), Date.now())
       }
-      pairUsers(socket)
     })
 
     socket.on('SEND_MESSAGE', (data) => {
-      // const sockets_in_room = data.room.split('#')
-      // const sender = (sockets_in_room[0] === socket.id) ? sockets_in_room[0] : sockets_in_room[1]
-      // const peer = (sockets_in_room[0] !== socket.id) ? sockets_in_room[0] : sockets_in_room[1]
-      // sender.emit('NEW_MESSAGE', data)
-      // peer.emit('NEW_MESSAGE', data)
-      // console.log('Condition1', sender)
-      // console.log('Condition2', peer)
-      io.sockets.in(data.room).emit('NEW_MESSAGE', data)
-      // console.log(io.sockets.adapter.rooms[data.room])
+      try {
+        io.sockets.in(data.room).emit('NEW_MESSAGE', data)        
+      } catch (error) {
+        ExceptionController.addError(error.message, 'server.app.socket.SEND_MESSAGE', error, Date.now(), Date.now())
+      }
     })
 
     socket.on('LEAVE_ROOM', (roomName) => {
-      socket.leave(roomName)
-      console.log(socket.id, 'leaves', roomName)
-      io.sockets.in(roomName).emit('LEFT_ROOM', socket.id)
+      try {
+        socket.leave(roomName)
+        console.log(socket.id, 'leaves', roomName)
+        io.sockets.in(roomName).emit('LEFT_ROOM', socket.id)        
+      } catch (error) {
+        ExceptionController.addError(error.message, 'server.app.socket.LEAVE_ROOM', error, Date.now(), Date.now())
+      }
     })
 
     // Remove socket connection of the disconnected user
     socket.on('disconnect', () => {
-      for (let index = 0; index < users.length; index++) {
-        const user = users[index]
-        if (user.id === socket.id) {
-          users.splice(index, 1)
+      try {
+        for (let index = 0; index < users.length; index++) {
+          const user = users[index]
+          if (user.id === socket.id) {
+            users.splice(index, 1)
+          }
         }
+        socket.disconnect(true)
+      } catch (error) {
+        ExceptionController.addError(error.message, 'server.app.socket.disconnect', error, Date.now(), Date.now())
       }
-      socket.disconnect(true)
     })
   })
 }
