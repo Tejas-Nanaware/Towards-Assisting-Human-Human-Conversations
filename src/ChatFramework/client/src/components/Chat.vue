@@ -220,7 +220,7 @@ export default {
 .leaveChat {
   align-items: right;
 }
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .chat-container .content{
     max-width: 60%;
   }
