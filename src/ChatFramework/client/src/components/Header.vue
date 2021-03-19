@@ -40,14 +40,14 @@ export default {
 
 <style>
 .v-app-bar-title__content {
-    width: fit-content !important;
+  width: fit-content !important;
 }
 .v-app-bar-title a {
   text-decoration: none;
-  color: #fff;
+  color: #fff !important;
 }
 .v-tab a {
   text-decoration: none;
-  color: #fff;
+  color: #fff !important;
 }
 </style>

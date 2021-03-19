@@ -10,7 +10,7 @@ const app = express()
 const http = require('http').Server(app)
 const io = require('socket.io')(http, {
   cors: {
-    origin: 'http://localhost:8080',
+    origin: config.cors_origins,
     methods: ['GET', 'POST'],
     allowedHeaders: ["my-custom-header"],
     credentials: true
@@ -68,7 +68,7 @@ const init = async () => {
     console.log('Unable to connect')
   }
   console.log(`Starting Sequelize + Express example on port ${config.port}...`)
-  http.listen(config.port, () => {
+  http.listen(config.port, config.host, () => {
     console.log(`Express server started on port ${config.port}. Try some routes, such as '/api/users'.`)
   })
 
