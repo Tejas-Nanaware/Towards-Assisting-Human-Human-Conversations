@@ -125,7 +125,7 @@ export default {
     partnerLeftRoom () {
       this.socket.on('LEFT_ROOM', (data) => {
         this.disableSend = true
-        setTimeout(() => this.$router.push({path: '/postChat'}), 5000)
+        setTimeout(() => this.leaveChat(), 5000)
       })
     },
     botMessageClick (bot) {
