@@ -7,124 +7,142 @@ const computeKarma = (totalConversations, totalPeers, totalMessagesSent, totalMe
 }
 
 const computeAwards = (user, totalConversations, totalPeers, totalMessagesSent, totalMessagesReceived, timesBotHelpful, timesBotNotHelpful, countGoodConversations, countBadConversations) => {
-  let awards = []
+  let awards = {}
   const colors = ['light-green darken-3', 'teal darken-3', 'purple darken-2', 'pink darken-3', 'amber darken-4']
+  let extraAwards = []
   if (user) {
-    awards.push(['Sign Up', colors[4]])
+    extraAwards.push(['Sign Up', colors[4]])
   }
+  awards['extraAwards'] = extraAwards
   
+  let totalConversationAwards = []
   if (totalConversations >= 500) {
-    awards.push(['Over 500 Conversations', colors[4]])
+    totalConversationAwards.push(['Over 500 Conversations', colors[4]])
   }
-  if (totalConversations >=200 && totalConversations < 500) {
-    awards.push(['Over 200 Conversations', colors[3]])
+  if (totalConversations >=200) {
+    totalConversationAwards.push(['Over 200 Conversations', colors[3]])
   }
-  if (totalConversations >= 100 && totalConversations < 200) {
-    awards.push(['Over 100 Conversations', colors[2]])
+  if (totalConversations >= 100) {
+    totalConversationAwards.push(['Over 100 Conversations', colors[2]])
   }
-  if (totalConversations >= 50 && totalConversations < 100) {
-    awards.push(['Over 50 Conversations', colors[1]])
+  if (totalConversations >= 50) {
+    totalConversationAwards.push(['Over 50 Conversations', colors[1]])
   }
-  if (totalConversations >= 10 && totalConversations < 50) {
-    awards.push(['Over 10 Conversations', colors[0]])
+  if (totalConversations >= 10) {
+    totalConversationAwards.push(['Over 10 Conversations', colors[0]])
   }
+  awards['totalConversationAwards'] = totalConversationAwards
 
+  let totalPeersAward = []
   if (totalPeers >= 50 ) {
-    awards.push(['Over 50 Different Partners', colors[4]])
+    totalPeersAward.push(['Over 50 Different Partners', colors[4]])
   }
-  if (totalPeers >=20 && totalPeers < 50) {
-    awards.push(['Over 20 Different Partners', colors[3]])
+  if (totalPeers >=20) {
+    totalPeersAward.push(['Over 20 Different Partners', colors[3]])
   }
-  if (totalPeers >=10 && totalPeers < 20) {
-    awards.push(['Over 10 Different Partners', colors[2]])
+  if (totalPeers >=10) {
+    totalPeersAward.push(['Over 10 Different Partners', colors[2]])
   }
-  if (totalPeers >=3 && totalPeers < 10) {
-    awards.push(['Over 3 Different Partners', colors[1]])
+  if (totalPeers >=3) {
+    totalPeersAward.push(['Over 3 Different Partners', colors[1]])
   }
+  awards['totalPeersAward'] = totalPeersAward
 
+  let messagesSentAward = []
   if (totalMessagesSent >= 5000) {
-    awards.push(['Sent Over 5000 Messages', colors[4]])
+    messagesSentAward.push(['Sent Over 5000 Messages', colors[4]])
   }
-  if (totalMessagesSent >= 1000 && totalMessagesSent < 5000) {
-    awards.push(['Sent Over 1000 Messages', colors[3]])
+  if (totalMessagesSent >= 1000) {
+    messagesSentAward.push(['Sent Over 1000 Messages', colors[3]])
   }
-  if (totalMessagesSent >= 500 && totalMessagesSent < 1000) {
-    awards.push(['Sent Over 500 Messages', colors[2]])
+  if (totalMessagesSent >= 500) {
+    messagesSentAward.push(['Sent Over 500 Messages', colors[2]])
   }
-  if (totalMessagesSent >= 100 && totalMessagesSent < 500) {
-    awards.push(['Sent Over 100 Messages', colors[1]])
+  if (totalMessagesSent >= 100) {
+    messagesSentAward.push(['Sent Over 100 Messages', colors[1]])
   }
-  if (totalMessagesSent >= 50 && totalMessagesSent < 100) {
-    awards.push(['Sent Over 50 Messages', colors[0]])
+  if (totalMessagesSent >= 50) {
+    messagesSentAward.push(['Sent Over 50 Messages', colors[0]])
   }
+  awards['messagesSentAward'] = messagesSentAward
 
+  let messagesReceivedAward = []
   if (totalMessagesReceived >= 5000) {
-    awards.push(['Received Over 5000 Messages', colors[4]])
+    messagesReceivedAward.push(['Received Over 5000 Messages', colors[4]])
   }
-  if (totalMessagesReceived >= 1000 && totalMessagesReceived < 5000) {
-    awards.push(['Received Over 1000 Messages', colors[3]])
+  if (totalMessagesReceived >= 1000) {
+    messagesReceivedAward.push(['Received Over 1000 Messages', colors[3]])
   }
-  if (totalMessagesReceived >= 500 && totalMessagesReceived < 1000) {
-    awards.push(['Received Over 500 Messages', colors[2]])
+  if (totalMessagesReceived >= 500) {
+    messagesReceivedAward.push(['Received Over 500 Messages', colors[2]])
   }
-  if (totalMessagesReceived >= 100 && totalMessagesReceived < 500) {
-    awards.push(['Received Over 100 Messages', colors[1]])
+  if (totalMessagesReceived >= 100) {
+    messagesReceivedAward.push(['Received Over 100 Messages', colors[1]])
   }
-  if (totalMessagesReceived >= 50 && totalMessagesReceived < 100) {
-    awards.push(['Received Over 50 Messages', colors[0]])
+  if (totalMessagesReceived >= 50) {
+    messagesReceivedAward.push(['Received Over 50 Messages', colors[0]])
   }
+  awards['messagesReceivedAward'] = messagesReceivedAward
 
+  let botHelpfulAward = []
   if (timesBotHelpful >= 200) {
-    awards.push(['AdvisorBot Helped You Over 200 Times', colors[3]])
+    botHelpfulAward.push(['AdvisorBot Helped You Over 200 Times', colors[3]])
   }
-  if (timesBotHelpful >= 100 && timesBotHelpful < 200) {
-    awards.push(['AdvisorBot Helped You Over 100 Times', colors[2]])
+  if (timesBotHelpful >= 100) {
+    botHelpfulAward.push(['AdvisorBot Helped You Over 100 Times', colors[2]])
   }
-  if (timesBotHelpful >= 50 && timesBotHelpful < 100) {
-    awards.push(['AdvisorBot Helped You Over 50 Times', colors[1]])
+  if (timesBotHelpful >= 50) {
+    botHelpfulAward.push(['AdvisorBot Helped You Over 50 Times', colors[1]])
   }
-  if (timesBotHelpful >= 10 && timesBotHelpful < 50) {
-    awards.push(['AdvisorBot Helped You Over 10 Times', colors[0]])
+  if (timesBotHelpful >= 10) {
+    botHelpfulAward.push(['AdvisorBot Helped You Over 10 Times', colors[0]])
   }
+  awards['botHelpfulAward'] = botHelpfulAward
 
+  let botNotHelpfulAward = []
   if (timesBotNotHelpful >= 200) {
-    awards.push(['You Overpowered AdvisorBot Over 200 Times', colors[3]])
+    botNotHelpfulAward.push(['You Overpowered AdvisorBot Over 200 Times', colors[3]])
   }
-  if (timesBotNotHelpful >= 100 && timesBotNotHelpful < 200) {
-    awards.push(['You Overpowered AdvisorBot Over 100 Times', colors[2]])
+  if (timesBotNotHelpful >= 100) {
+    botNotHelpfulAward.push(['You Overpowered AdvisorBot Over 100 Times', colors[2]])
   }
-  if (timesBotNotHelpful >= 50 && timesBotNotHelpful < 100) {
-    awards.push(['You Overpowered AdvisorBot Over 50 Times', colors[1]])
+  if (timesBotNotHelpful >= 50) {
+    botNotHelpfulAward.push(['You Overpowered AdvisorBot Over 50 Times', colors[1]])
   }
-  if (timesBotNotHelpful >= 10 && timesBotNotHelpful < 50) {
-    awards.push(['You Overpowered AdvisorBot Over 10 Times', colors[0]])
+  if (timesBotNotHelpful >= 10) {
+    botNotHelpfulAward.push(['You Overpowered AdvisorBot Over 10 Times', colors[0]])
   }
+  awards['botNotHelpfulAward'] = botNotHelpfulAward
 
+  let goodConversationAward = []
   if (countGoodConversations >= 200) {
-    awards.push(['Over 200 Good Conversations', colors[3]])
+    goodConversationAward.push(['Over 200 Good Conversations', colors[3]])
   }
-  if (countGoodConversations >= 100 && countGoodConversations < 200) {
-    awards.push(['Over 100 Good Conversations', colors[2]])
+  if (countGoodConversations >= 100) {
+    goodConversationAward.push(['Over 100 Good Conversations', colors[2]])
   }
-  if (countGoodConversations >= 50 && countGoodConversations < 100) {
-    awards.push(['Over 50 Good Conversations', colors[1]])
+  if (countGoodConversations >= 50) {
+    goodConversationAward.push(['Over 50 Good Conversations', colors[1]])
   }
-  if (countGoodConversations >= 10 && countGoodConversations < 50) {
-    awards.push(['Over 10 Good Conversations', colors[0]])
+  if (countGoodConversations >= 10) {
+    goodConversationAward.push(['Over 10 Good Conversations', colors[0]])
   }
+  awards['goodConversationAward'] = goodConversationAward
 
+  let badConversationAward = []
   if (countBadConversations >= 200) {
-    awards.push(['Over 200 Bad Conversations', colors[3]])
+    badConversationAward.push(['Over 200 Bad Conversations', colors[3]])
   }
-  if (countBadConversations >= 100 && countBadConversations < 200) {
-    awards.push(['Over 100 Bad Conversations', colors[2]])
+  if (countBadConversations >= 100) {
+    badConversationAward.push(['Over 100 Bad Conversations', colors[2]])
   }
-  if (countBadConversations >= 50 && countBadConversations < 100) {
-    awards.push(['Over 50 Bad Conversations', colors[1]])
+  if (countBadConversations >= 50) {
+    badConversationAward.push(['Over 50 Bad Conversations', colors[1]])
   }
-  if (countBadConversations >= 10 && countBadConversations < 50) {
-    awards.push(['Over 10 Bad Conversations', colors[0]])
+  if (countBadConversations >= 10) {
+    badConversationAward.push(['Over 10 Bad Conversations', colors[0]])
   }
+  awards['badConversationAward'] = badConversationAward
 
   return awards
 }
@@ -149,19 +167,45 @@ const getProfile = (req, res) => {
         const karma = computeKarma(totalConversations, totalPeers, totalMessagesSent, totalMessagesReceived, timesBotHelpful, timesBotNotHelpful, countGoodConversations, countBadConversations)
         const awards = computeAwards(user, totalConversations, totalPeers, totalMessagesSent, totalMessagesReceived, timesBotHelpful, timesBotNotHelpful, countGoodConversations, countBadConversations)
 
-        res.status(200).send({
-          totalConversations: totalConversations,
-          totalPeers: totalPeers,
-          totalMessagesSent: totalMessagesSent,
-          totalMessagesReceived: totalMessagesReceived,
-          timesBotHelpful: timesBotHelpful,
-          timesBotNotHelpful: timesBotNotHelpful,
-          countGoodConversations: countGoodConversations,
-          countBadConversations: countBadConversations,
+        const sendResponse = [[{
+          'title': 'Total Conversations',
+          'count': totalConversations,
+          'awards': awards.totalConversationAwards
+        }, {
+          'title': 'Total Different Conversation Partners',
+          'count': totalPeers,
+          'awards': awards.totalPeersAward
+        }, {
+          'title': 'Total Messages You Sent',
+          'count': totalMessagesSent,
+          'awards': awards.messagesSentAward
+        }, {
+          'title': 'Total Messages You Received',
+          'count': totalMessagesReceived,
+          'awards': awards.messagesReceivedAward
+        }, {
+          'title': 'Times You Found AdvisorBot Helpful',
+          'count': timesBotHelpful,
+          'awards': awards.botHelpfulAward
+        }, {
+          'title': 'Times You Found AdvisorBot Not Helpful',
+          'count': timesBotNotHelpful,
+          'awards': awards.botNotHelpfulAward
+        }, {
+          'title': 'Times You Found Conversation Satisfactory',
+          'count': countGoodConversations,
+          'awards': awards.goodConversationAward
+        }, {
+          'title': 'Times You Found Conversation Unsatisfactory',
+          'count': countBadConversations,
+          'awards': awards.badConversationAward
+        }], {
+          'extraAwards': awards.extraAwards,
           user: user,
-          karma: karma,
-          awards: awards
-        })
+          karma: karma
+        }]
+
+        res.status(200).send(sendResponse)
     }).catch (error => {
         res.status(500).send({
           error: 'Error while getting profile' + error
