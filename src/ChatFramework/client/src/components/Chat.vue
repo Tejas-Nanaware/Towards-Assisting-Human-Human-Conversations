@@ -1,8 +1,11 @@
 <template>
   <v-container>
-    <div class="before-chat-container">
-      <v-btn @click="leaveChat" icon color="error" style="float: right;">X</v-btn>
+    <div class="before-chat-container d-flex justify-space-between flex-row-reverse">
+      <v-btn x-small rounded elevation="0" @click="leaveChat" class="leaveChat" color="error">Leave Chat</v-btn>
+      <div v-if="peerUserID === 0"><v-chip class="mb-1" color="blue lighten-4" x-small>Waiting for a partner</v-chip></div>
+      <div v-if="peerUserID !== 0 && disableSend"><v-chip class="mb-1" color="error" x-small>Your partner has left</v-chip></div>
     </div>
+
     <div class="chat-container">
       <div class="message mb-2" v-for="(item,index) in messages" v-bind:key="index" :class="{own: item.senderID === $store.state.user.ID}">
         <div class="content pa-2">
@@ -11,8 +14,8 @@
       </div>
     </div>
 
-    <div class="bot-replies d-flex justify-space-around ma-2">
-      Suggestions will be loaded here when you get new messages
+    <div class="bot-replies d-flex justify-space-around">
+      <div class="mt-4" v-if="!botMessages.length">Suggestions will be loaded here when you get new messages</div>
       <button class="bot-button ma-2 pa-1" elevation="24"
         v-for="(b, i) in botMessages" v-bind:key="i"
         @click="botMessageClick(b)"
@@ -22,23 +25,25 @@
     </div>
 
     <div>
-      <br>
       <v-text-field label="Message" v-model="message" v-on:keyup.enter="sendMessage">
         <v-btn :disabled="disableSend" slot="append" color="primary" @click="sendMessage">
           <v-icon dark>mdi-send</v-icon>
         </v-btn>
       </v-text-field>
     </div>
-    <div class="d-flex justify-space-around">
-      <p>How's it going?</p>
-      <p>
+
+    <div class="d-flex justify-space-around feedback">
+      <div>How's it going?</div>
+      <div>
         AdvisorBot:
-        <v-btn rounded elevation="0" :color="advisorColor" :disabled="disableAdvisorButtons" @click="advisorClick('up')"><v-icon dark>mdi-thumb-up</v-icon></v-btn>
-        <v-btn rounded elevation="0" :color="advisorColor" :disabled="disableAdvisorButtons" @click="advisorClick('down')"><v-icon dark>mdi-thumb-down</v-icon></v-btn>
+        <v-btn small rounded elevation="0" :color="advisorColor" :disabled="disableAdvisorButtons" @click="advisorClick('up')"><v-icon dark>mdi-thumb-up</v-icon></v-btn>
+        <v-btn small rounded elevation="0" :color="advisorColor" :disabled="disableAdvisorButtons" @click="advisorClick('down')"><v-icon dark>mdi-thumb-down</v-icon></v-btn>
+      </div>
+      <div>
         Conversation Quality:
-        <v-btn rounded elevation="0" :color="conversationColor" :disabled="disableConversationButtons" @click="conversationClick('up')"><v-icon dark>mdi-thumb-up</v-icon></v-btn>
-        <v-btn rounded elevation="0" :color="conversationColor" :disabled="disableConversationButtons" @click="conversationClick('down')"><v-icon dark>mdi-thumb-down</v-icon></v-btn>
-      </p>
+        <v-btn small rounded elevation="0" :color="conversationColor" :disabled="disableConversationButtons" @click="conversationClick('up')"><v-icon dark>mdi-thumb-up</v-icon></v-btn>
+        <v-btn small rounded elevation="0" :color="conversationColor" :disabled="disableConversationButtons" @click="conversationClick('down')"><v-icon dark>mdi-thumb-down</v-icon></v-btn>
+      </div>
     </div>
   </v-container>
 </template>
@@ -120,6 +125,7 @@ export default {
     partnerLeftRoom () {
       this.socket.on('LEFT_ROOM', (data) => {
         this.disableSend = true
+        setTimeout(() => this.$router.push({path: '/postChat'}), 5000)
       })
     },
     botMessageClick (bot) {
@@ -231,10 +237,16 @@ export default {
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
   max-width: 50%;
   word-wrap: break-word;
-  }
+}
+.leaveChat {
+  align-items: right;
+}
 @media (max-width: 480px) {
   .chat-container .content{
     max-width: 60%;
+  }
+  .feedback {
+    flex-direction: column;
   }
 }
 
