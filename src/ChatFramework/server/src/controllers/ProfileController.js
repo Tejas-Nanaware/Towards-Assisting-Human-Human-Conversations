@@ -8,9 +8,9 @@ const computeKarma = (totalConversations, totalPeers, totalMessagesSent, totalMe
 
 const computeAwards = (user, totalConversations, totalPeers, totalMessagesSent, totalMessagesReceived, timesBotHelpful, timesBotNotHelpful, countGoodConversations, countBadConversations) => {
   let awards = []
-  const colors = ['light-green darken-3', 'teal darken-3', 'purple darken-2', 'amber darken-2', 'light-blue darken-2']
+  const colors = ['light-green darken-3', 'teal darken-3', 'purple darken-2', 'pink darken-3', 'amber darken-4']
   if (user) {
-    awards.push(['Sign Up', colors[0]])
+    awards.push(['Sign Up', colors[4]])
   }
   
   if (totalConversations >= 500) {
