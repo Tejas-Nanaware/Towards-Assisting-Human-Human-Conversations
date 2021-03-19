@@ -10,11 +10,14 @@
     <p>Times you found conversation satisfactory: {{ countGoodConversations }}</p>
     <p>Times you found conversation unsatisfactory: {{ countBadConversations }}</p>
     <p>Karma: {{ karma }} </p>
-    <p>Awards: {{ awards }} </p>
+    <div>
+      <p>Awards:</p>
+      <v-chip class="mr-2 mb-2" dark v-for="(item, index) in awards" v-bind:key="index" :color="item[1]">{{ item[0] }}</v-chip>
+    </div>
 
     <p>Karma: ((msg_sent + msg_rec) / (t_conv / conv_partners)) + (bot_help * conv_s) - (bot_n_help * conv_u)</p>
     <p>Awards:SignUp,
-              1_5_10_20_50_t_conv,
+              10_50_100_200_500_t_conv,
               3_10_20_50_partners,
               50_100_1000_5000_msg,
               10_50_100_200_bot_help,
@@ -46,29 +49,22 @@ export default {
   },
   async created () {
     const result = (await ProfileService.getUserProfile(this.$store.state.user.ID)).data
-    this.firstName = result.FirstName
-    this.lastName = result.LastName
-    this.totalConversations = result.TotalConversations
-    this.totalPeers = result.TotalPeers
-    this.totalMessagesSent = result.TotalMessagesSent
-    this.totalMessagesReceived = result.TotalMessagesReceived
-    this.timesBotHelpful = result.TimesBotHelpful
-    this.timesBotNotHelpful = result.TimesBotNotHelpful
-    this.countGoodConversations = result.CountGoodConversations
-    this.countBadConversations = result.CountBadConversations
-    this.firstName = result.User.FirstName
-    this.lastName = result.User.LastName
-
-    this.computeKarma()
-    this.computeAwards()
+    this.firstName = result.firstName
+    this.lastName = result.lastName
+    this.totalConversations = result.totalConversations
+    this.totalPeers = result.totalPeers
+    this.totalMessagesSent = result.totalMessagesSent
+    this.totalMessagesReceived = result.totalMessagesReceived
+    this.timesBotHelpful = result.timesBotHelpful
+    this.timesBotNotHelpful = result.timesBotNotHelpful
+    this.countGoodConversations = result.countGoodConversations
+    this.countBadConversations = result.countBadConversations
+    this.firstName = result.user.FirstName
+    this.lastName = result.user.LastName
+    this.karma = result.karma
+    this.awards = result.awards
   },
   methods: {
-    computeKarma () {
-      this.karma = Math.round((this.totalMessagesSent + this.totalMessagesReceived) / (this.totalConversations / this.totalPeers)) + (this.timesBotHelpful * this.countGoodConversations) - (this.timesBotNotHelpful * this.countBadConversations)
-    },
-    computeAwards () {
-      this.awards.push('SignUp')
-    }
   }
 }
 </script>
