@@ -36,13 +36,25 @@
       <div>How's it going?</div>
       <div>
         AdvisorBot:
-        <v-btn small rounded elevation="0" :color="advisorColor" :disabled="disableAdvisorButtons" @click="advisorClick('up')"><v-icon dark>mdi-thumb-up</v-icon></v-btn>
-        <v-btn small rounded elevation="0" :color="advisorColor" :disabled="disableAdvisorButtons" @click="advisorClick('down')"><v-icon dark>mdi-thumb-down</v-icon></v-btn>
+        <v-btn-toggle rounded dense>
+          <v-btn small :color="(advisorStatus.length ? ((advisorStatus[advisorStatus.length-1].Status === 'up') ? 'success' : null) : null)" :disabled="disableAdvisorButtons" @click="advisorClick('up')">
+            <v-icon small>mdi-thumb-up</v-icon>
+          </v-btn>
+          <v-btn small :color="(advisorStatus.length ? ((advisorStatus[advisorStatus.length-1].Status === 'down') ? 'error' : null) : null)" :disabled="disableAdvisorButtons" @click="advisorClick('down')">
+            <v-icon small>mdi-thumb-down</v-icon>
+          </v-btn>
+        </v-btn-toggle>
       </div>
       <div>
         Conversation Quality:
-        <v-btn small rounded elevation="0" :color="conversationColor" :disabled="disableConversationButtons" @click="conversationClick('up')"><v-icon dark>mdi-thumb-up</v-icon></v-btn>
-        <v-btn small rounded elevation="0" :color="conversationColor" :disabled="disableConversationButtons" @click="conversationClick('down')"><v-icon dark>mdi-thumb-down</v-icon></v-btn>
+        <v-btn-toggle rounded dense>
+          <v-btn small :color="(conversationStatus.length ? ((conversationStatus[conversationStatus.length-1].Status === 'up') ? 'success' : null) : null)" :disabled="disableConversationButtons" @click="conversationClick('up')">
+            <v-icon small>mdi-thumb-up</v-icon>
+          </v-btn>
+          <v-btn small :color="(conversationStatus.length ? ((conversationStatus[conversationStatus.length-1].Status === 'down') ? 'error' : null) : null)" :disabled="disableConversationButtons" @click="conversationClick('down')">
+            <v-icon small>mdi-thumb-down</v-icon>
+          </v-btn>
+        </v-btn-toggle>
       </div>
     </div>
   </v-container>
@@ -64,14 +76,9 @@ export default {
       nameOfBotClicked: '',
       disableSend: true,
       advisorStatus: [],
-      advisorColor: null,
-      advisorCount: 0,
       disableAdvisorButtons: false,
       conversationStatus: [],
-      conversationColor: null,
-      conversationCount: 0,
       disableConversationButtons: false,
-      buttonColors: ['red', 'yellow darken-2', 'green'],
       socket: Socket
     }
   },
@@ -158,38 +165,10 @@ export default {
     },
     advisorClick (status) {
       this.advisorStatus.push({Status: status, CreatedAt: Date.now()})
-      if (status === 'up') {
-        this.advisorCount += 1
-      } else {
-        this.advisorCount -= 1
-      }
-      if (this.advisorCount < 0) {
-        this.advisorColor = this.buttonColors[0]
-      } else {
-        if (this.advisorCount > 0) {
-          this.advisorColor = this.buttonColors[2]
-        } else {
-          this.advisorColor = this.buttonColors[1]
-        }
-      }
       this.disableAdvisorButtons = true
     },
     conversationClick (status) {
       this.conversationStatus.push({Status: status, CreatedAt: Date.now()})
-      if (status === 'up') {
-        this.conversationCount += 1
-      } else {
-        this.conversationCount -= 1
-      }
-      if (this.conversationCount < 0) {
-        this.conversationColor = this.buttonColors[0]
-      } else {
-        if (this.conversationCount > 0) {
-          this.conversationColor = this.buttonColors[2]
-        } else {
-          this.conversationColor = this.buttonColors[1]
-        }
-      }
       this.disableConversationButtons = true
     },
     async sendChatData () {
