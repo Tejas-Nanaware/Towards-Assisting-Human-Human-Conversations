@@ -63,6 +63,7 @@
 <script>
 import ChatService from '@/services/ChatService'
 import Socket from '@/services/Socket'
+import config from '@/config/config'
 
 export default {
   data () {
@@ -140,11 +141,8 @@ export default {
       this.message = bot.reply
     },
     getBotMessages (text) {
-      const blenderBotURL = 'http://127.0.0.1:5000/api/v1/Blenderbot?text='
-      const dialoGPTURL = 'http://127.0.0.1:5000/api/v1/DialoGPT?text='
-
-      const blenderBotRequest = blenderBotURL + text
-      const dialoGPTRequest = dialoGPTURL + text
+      const blenderBotRequest = config.blenderBotURL + text
+      const dialoGPTRequest = config.dialoGPTURL + text
 
       this.getBotResponseAsync(blenderBotRequest).then(data => {
         this.botMessages.push(data)
