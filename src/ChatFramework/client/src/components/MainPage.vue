@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="text-xs-h6 text-sm-h5 text-md-h4 text-lg-h4 text-xl-h4 font-weight-light mt-2">Welcome to Assistive Chats</h1>
-    <h6 class="text-subtitle-1 mt-6 mb-4">Here you'll be able to chat with someone while being assisted through suggestions by an AdvisorBot.</h6>
+    <h6 class="text-subtitle-1 mt-6 mb-4 font-weight-light">Here you'll be able to chat with someone while being assisted through suggestions by an AdvisorBot.</h6>
     <div class="text-justify body-1">
       <p>The AdvisorBot provides you with the suggestions to what you can say next that is related to the conversation that you are having. You can choose to use / edit / ignore the suggestions provided to you by the AdvisorBot.</p>
       <p>This is a part of a research study to understand and assist textual human conversations by identifying key parameters behind a successful conversation and using chat assistants that can help to maintain the conversational flow.</p>
