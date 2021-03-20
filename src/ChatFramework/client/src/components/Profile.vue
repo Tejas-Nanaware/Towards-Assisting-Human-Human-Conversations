@@ -19,9 +19,11 @@
                 {{ detail.title }}
               </h2>
               <div>
+                <p v-if="$vuetify.breakpoint.smAndDown">{{ detail.title }}: {{ detail.count }}</p>
                 <p v-if="!detail.awards.length">You can earn more awards here</p>
-                <p v-if="detail.awards.length">Awards: </p>
-                <v-chip class="mr-2 mb-2" dark v-for="(item, index) in detail.awards" v-bind:key="index" :color="colors[i]">{{ item[0] }}</v-chip>
+                <p v-if="detail.awards.length">Awards:
+                  <v-chip class="mr-2 mb-2" dark v-for="(item, index) in detail.awards" v-bind:key="index" :color="colors[i]">{{ item[0] }}</v-chip>
+                </p>
               </div>
             </div>
           </v-timeline-item>

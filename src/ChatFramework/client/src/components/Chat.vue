@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <div class="bot-replies d-flex justify-space-around">
+    <div class="bot-replies d-flex justify-space-around change-flex-direction">
       <div class="mt-4" v-if="!botMessages.length">Suggestions will be loaded here when you get new messages</div>
       <button class="bot-button ma-2 pa-1" elevation="24"
         v-for="(b, i) in botMessages" v-bind:key="i"
@@ -32,7 +32,7 @@
       </v-text-field>
     </div>
 
-    <div class="d-flex justify-space-around feedback">
+    <div class="d-flex justify-space-around change-flex-direction">
       <div>How's it going?</div>
       <div>
         AdvisorBot:
@@ -224,8 +224,12 @@ export default {
   .chat-container .content{
     max-width: 60%;
   }
-  .feedback {
+  .change-flex-direction {
     flex-direction: column;
+  }
+  .change-flex-direction .bot-button {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
   }
 }
 
