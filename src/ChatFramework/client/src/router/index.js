@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Guard from '@/router/guard'
+import Guard from '@/router/guard'
 import MainPage from '@/components/MainPage'
 import Register from '@/components/Register'
 import Login from '@/components/Login'
@@ -30,20 +30,20 @@ export default new Router({
     {
       path: '/profile',
       name: 'profile',
-      component: Profile
-      // beforeEnter: Guard
+      component: Profile,
+      beforeEnter: Guard
     },
     {
       path: '/chat',
       name: 'chat',
-      component: Chat
-      // beforeEnter: Guard
+      component: Chat,
+      beforeEnter: Guard
     },
     {
       path: '/postChat',
       name: 'postChat',
-      component: PostChatQuestionnaire
-      // beforeEnter: Guard
+      component: PostChatQuestionnaire,
+      beforeEnter: Guard
     }
   ]
 })
