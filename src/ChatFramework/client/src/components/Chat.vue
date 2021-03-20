@@ -128,6 +128,10 @@ export default {
           this.disableAdvisorButtons = false
           this.disableConversationButtons = false
         }
+        setTimeout(() => {
+          const element = document.querySelector('.message:last-child')
+          element && element.scrollIntoView({behavior: 'smooth', block: 'end'})
+        }, 300)
       })
     },
     partnerLeftRoom () {
