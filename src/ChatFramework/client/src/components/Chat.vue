@@ -124,6 +124,7 @@ export default {
         if (data.senderID === this.$store.state.user.ID) {
           console.log('My message', data.message)
         } else {
+          this.botMessages = []
           this.getBotMessages(data.message)
           this.disableAdvisorButtons = false
           this.disableConversationButtons = false
