@@ -9,7 +9,6 @@ import torch
 
 app = flask.Flask(__name__)
 cors = CORS(app)
-app.config['DEBUG'] = True
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 DialoGPT_tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-large")
@@ -72,5 +71,9 @@ def flask_Blenderbot_response():
     else:
         return jsonify("Error getting text for retrieving Blenderbot Response")
 
-
-app.run()
+# run the app.
+if __name__ == "__main__":
+    # Setting debug to True enables debug output. This line should be
+    # removed before deploying a production app.
+    app.debug = True
+    app.run()
