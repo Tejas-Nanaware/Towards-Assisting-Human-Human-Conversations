@@ -7,9 +7,9 @@ from transformers import AutoModelWithLMHead, AutoTokenizer
 from transformers import BlenderbotSmallTokenizer, BlenderbotForConditionalGeneration, BlenderbotConfig
 import torch
 
-app = flask.Flask(__name__)
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
+application = flask.Flask(__name__)
+cors = CORS(application)
+application.config['CORS_HEADERS'] = 'Content-Type'
 
 DialoGPT_tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-large")
 DialoGPT_model = AutoModelWithLMHead.from_pretrained("microsoft/DialoGPT-large")
@@ -43,13 +43,13 @@ def get_Blenderbot_response(text):
 
     return {'bot_name': "Blenderbot", 'reply': reply}
 
-@app.route('/', methods=['GET'])
+@application.route('/', methods=['GET'])
 @cross_origin()
 def home():
     return '''<h1>Chat Framework API</h1>
 <p>A prototype API for getting chatbot responses.</p>'''
 
-@app.route('/api/v1/DialoGPT', methods=['GET'])
+@application.route('/api/v1/DialoGPT', methods=['GET'])
 @cross_origin()
 def flask_DialoGPT_response():
     print(request.args)
@@ -60,7 +60,7 @@ def flask_DialoGPT_response():
     else:
         return jsonify("Error getting text for retrieving DialoGPT Response")
 
-@app.route('/api/v1/Blenderbot', methods=['GET'])
+@application.route('/api/v1/Blenderbot', methods=['GET'])
 @cross_origin()
 def flask_Blenderbot_response():
     print(request.args)
@@ -71,9 +71,9 @@ def flask_Blenderbot_response():
     else:
         return jsonify("Error getting text for retrieving Blenderbot Response")
 
-# run the app.
+# run the application.
 if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
-    # removed before deploying a production app.
-    app.debug = True
-    app.run()
+    # removed before deploying a production application.
+    # application.debug = True
+    application.run()
