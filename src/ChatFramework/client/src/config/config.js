@@ -1,5 +1,5 @@
 module.exports = {
-  node_server: 'http://192.168.0.100:8000/',
-  blenderBotURL: 'http://192.168.0.100:3000/api/v1/Blenderbot?text=',
-  dialoGPTURL: 'http://192.168.0.100:3000/api/v1/DialoGPT?text='
+  node_server: 'http://3.134.130.112/chatapi/',
+  blenderBotURL: 'http://3.134.130.112/flaskapi/api/v1/Blenderbot?text=',
+  dialoGPTURL: 'http://3.134.130.112/flaskapi/api/v1/DialoGPT?text='
 }
