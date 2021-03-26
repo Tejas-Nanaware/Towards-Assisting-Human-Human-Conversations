@@ -1,0 +1,21 @@
+server {
+  listen 80 default_server;
+  server_name _;
+
+  # vue app & front-end files
+  location / {
+    # root /home/ubuntu/src/ChatFramework/client/dist;
+    # try_files $uri /index.html;
+    proxy_pass http://localhost:5000/;
+  }
+
+  # node api reverse proxy
+  location /chatapi/ {
+    proxy_pass http://127.0.0.1:8000/;
+  }
+
+  # flask api reverse proxy
+  location /flaskapi/ {
+    proxy_pass http://127.0.0.1:3000/;
+  }
+}

@@ -32,6 +32,7 @@ def get_DialoGPT_response(text):
     reply = DialoGPT_tokenizer.decode(chat_history_ids[:, bot_input_ids.shape[-1]:][0], skip_special_tokens=True)
 
     return {'bot_name': "DialoGPT", 'reply': reply}
+    # return {'bot_name': "DialoGPT", 'reply': 'DialoGPT: '+text}
 
 def get_Blenderbot_response(text):
     inputs = Blenderbot_tokenizer([text], return_tensors='pt')
@@ -42,6 +43,7 @@ def get_Blenderbot_response(text):
     reply = " ".join(str(x) for x in reply)
 
     return {'bot_name': "Blenderbot", 'reply': reply}
+    # return {'bot_name': "Blenderbot", 'reply': 'Blenderbot: '+text}
 
 @application.route('/', methods=['GET'])
 @cross_origin()
@@ -76,4 +78,4 @@ if __name__ == "__main__":
     # Setting debug to True enables debug output. This line should be
     # removed before deploying a production application.
     # application.debug = True
-    application.run()
+    application.run(host='127.0.1', port='3000')
