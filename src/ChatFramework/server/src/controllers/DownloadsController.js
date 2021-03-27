@@ -2,7 +2,7 @@ const path = require('path')
 
 const saveConsentForm = async  (req,res) => {
   const fileName = 'ConsentForm.pdf'
-  const filePath = path.join('src', 'assets', fileName)
+  const filePath = path.join('ChatFramework', 'server', 'src', 'assets', fileName)
   const options = {
     headers: {
         'x-timestamp': Date.now(),
