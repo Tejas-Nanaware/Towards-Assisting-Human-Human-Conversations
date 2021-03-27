@@ -6,6 +6,9 @@ import router from './router'
 import { sync } from 'vuex-router-sync'
 import { store } from '@/store/store'
 import vuetify from '@/plugins/vuetify'
+import VueSocialSharing from 'vue-social-sharing'
+
+Vue.use(VueSocialSharing)
 
 Vue.config.productionTip = false
 
