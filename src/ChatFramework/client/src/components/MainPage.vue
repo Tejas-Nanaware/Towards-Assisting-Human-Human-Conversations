@@ -71,7 +71,7 @@ export default {
   data () {
     return {
       sharing: {
-        url: 'https://bit.ly/3ssseW1',
+        url: 'https://bit.ly/3u6gJ7r',
         title: 'Assistive Chats - get guided in any conversation',
         description: 'Join Assistive Chats to chat with a stranger while being helped with the AdvisorBot that can help you overcome social anxiety and get suggestions on loads of topics. Since this is a research project, please help us improve the AdvisorBot by providing us with feedback.'
       },
