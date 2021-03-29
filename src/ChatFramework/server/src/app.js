@@ -69,7 +69,7 @@ const init = async () => {
   }
   console.log(`Starting Sequelize + Express example on port ${config.port}...`)
   http.listen(config.port, config.host, () => {
-    console.log(`Express server started on port ${config.port}. Try some routes, such as '/api/users'.`)
+    console.log(`Express server started on ${config.host} port ${config.port}. Try some routes, such as '/api/users'.`)
   })
 
   io.on('connection', (socket) => {
@@ -119,6 +119,12 @@ const init = async () => {
           const user = users[index]
           if (user.id === socket.id) {
             users.splice(index, 1)
+          }
+        }
+        for (let index = 0; index < queue.length; index++) {
+          const user = queue[index]
+          if (user.socket.id === socket.id) {
+            queue.splice(index, 1)
           }
         }
         socket.disconnect(true)

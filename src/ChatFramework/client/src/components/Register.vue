@@ -24,7 +24,7 @@
         <v-autocomplete name="workIndustry" :items="lists.workIndustryList" label="Work Industry" v-if="employementStatus === 'Employed Full-Time' || employementStatus === 'Employed Part-Time'" v-model="workIndustry" required :rules="requiredRules"></v-autocomplete>
         <v-select name="disability" :items="lists.disabilityList" label="Disability" v-model="disability" required :rules="requiredRules"></v-select>
         <v-text-field name="disabilityText" label="Disability" v-if="disability === 'Yes; Specify if yes'" v-model="disabilityText" required :rules="requiredRules"></v-text-field>
-        <v-select name="recruited" :items="lists.recruitedList" label="Recruited" v-model="recruited" required :rules="requiredRules"></v-select>
+        <v-select name="recruited" :items="lists.recruitedList" label="How were you recruited for this research study?" v-model="recruited" required :rules="requiredRules"></v-select>
       </div>
       <div slot="card-actions-left">
         <v-snackbar v-model="snackbar.show" color="red darken-2" :timeout="5000" absolute bottom left>
