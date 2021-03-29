@@ -25,7 +25,7 @@
     </div>
 
     <div>
-      <v-text-field label="Message" v-model="message" v-on:keyup.enter="sendMessage">
+      <v-text-field :disabled="disableSend" label="Message" v-model="message" v-on:keyup.enter="sendMessage">
         <v-btn :disabled="disableSend" slot="append" color="primary" @click="sendMessage">
           <v-icon dark>mdi-send</v-icon>
         </v-btn>
