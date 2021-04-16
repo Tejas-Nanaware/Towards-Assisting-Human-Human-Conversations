@@ -1,0 +1,389 @@
+text:Hello	labels:hello, how are you today? i just got back from a long day at the office.
+text:hello, how are you today? i just got back from a long day at the office.	labels:I'm doing well, thanks for asking.
+text:I'm doing well, thanks for asking.	labels:that's good to hear. i'm glad you're having a good day.	episode_done:True
+text:Hello	labels:hello, how are you today? i just got back from a long day at the office.
+text:hello, how are you today? i just got back from a long day at the office.	labels:I'm doing well, thanks for asking.
+text:I'm doing well, thanks for asking.	labels:that's good to hear. i'm glad you're having a good day.	episode_done:True
+text:Hello there	labels:Hello Kitty
+text:Hello Kitty	labels:i love kitty kitty! she's my favorite cat. do you have a favorite cat?
+text:i love kitty kitty! she's my favorite cat. do you have a favorite cat?	labels:But i like dogs
+text:But i like dogs	labels:what kind of dogs do you like? there are so many different kinds of dogs out there.	episode_done:True
+text:Hello there	labels:Hello Kitty
+text:Hello Kitty	labels:i love kitty kitty! she's my favorite cat. do you have a favorite cat?
+text:i love kitty kitty! she's my favorite cat. do you have a favorite cat?	labels:But i like dogs
+text:But i like dogs	labels:what kind of dogs do you like? there are so many different kinds of dogs out there.	episode_done:True
+text:Hey	labels:Hey, how are you?
+text:Hey, how are you?	labels:i'm good. just got back from a long day at work. how are you?
+text:i'm good. just got back from a long day at work. how are you?	labels:Good too, thanks
+text:Good too, thanks	labels:Do you like the tv show friends?
+text:Do you like the tv show friends?	labels:Yes
+text:Yes	labels:Do you think ross and rachel were on a break?
+text:Do you think ross and rachel were on a break?	labels:i don't think so. i think it's more likely that they were together for a while.	episode_done:True
+text:Hey	labels:Hey, how are you?
+text:Hey, how are you?	labels:i'm good. just got back from a long day at work. how are you?
+text:i'm good. just got back from a long day at work. how are you?	labels:Good too, thanks
+text:Good too, thanks	labels:Do you like the tv show friends?
+text:Do you like the tv show friends?	labels:Yes
+text:Yes	labels:Do you think ross and rachel were on a break?
+text:Do you think ross and rachel were on a break?	labels:i don't think so. i think it's more likely that they were together for a while.	episode_done:True
+text:Test	labels:i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.	episode_done:True
+text:Test	labels:i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.	episode_done:True
+text:Test	labels:i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.
+text:i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.	labels:what kind of test are you going to take? i'm sure you'll do great!	episode_done:True
+text:Test	labels:i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.
+text:i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.	labels:what kind of test are you going to take? i'm sure you'll do great!	episode_done:True
+text:Hello friends	labels:Hi there
+text:Hi there	labels:Chai pilo
+text:Chai pilo	labels:Hiya!
+text:Hiya!	labels:hello, how are you today? i just got back from a long day at the office.
+text:hello, how are you today? i just got back from a long day at the office.	labels:i'm doing well. i just got back from a long day at work as well.
+text:i'm doing well. i just got back from a long day at work as well.	labels:Good to hear.
+text:Good to hear.	labels:Have you seen the tv show friends?
+text:Have you seen the tv show friends?	labels:that's good to hear. what do you do for a living, if you don't mind me asking?
+text:that's good to hear. what do you do for a living, if you don't mind me asking?	labels:I work as on a research project for a military project
+text:I work as on a research project for a military project	labels:i'm a stay at home mom. it's hard work, but it pays the bills.
+text:i'm a stay at home mom. it's hard work, but it pays the bills.	labels:Hi
+text:Hi	labels:hi
+text:hi	labels:hi
+text:hi	labels:Hello
+text:Hello	labels:I am really depressed about job search	episode_done:True
+text:Hello	labels:Hey partner
+text:Hey partner	labels:hi
+text:hi	labels:hi, how are you doing today? i just got back from a long day at work.
+text:hi, how are you doing today? i just got back from a long day at work.	labels:Do you watch tarak mehta
+text:Do you watch tarak mehta	labels:i've never heard of tarak mehta. i'll have to check it out.
+text:i've never heard of tarak mehta. i'll have to check it out.	labels:Hi
+text:Hi	labels:Hiya
+text:Hiya	labels:Hello tejas
+text:Hello tejas	labels:how are you?
+text:how are you?	labels:i cant see your texts
+text:i cant see your texts	labels:I'm good how are you?
+text:I'm good how are you?	labels:I can see your texts	episode_done:True
+text:Hello	labels:Hi Eve!
+text:Hi Eve!	labels:Hi
+text:Hi	labels:F U
+text:F U	labels:DA
+text:DA	labels:Go make Maggi!
+text:Go make Maggi!	labels:Don't spend 59893 hours on the phone
+text:Don't spend 59893 hours on the phone	labels:In the process
+text:In the process	labels:what are you going to do in the process? i'm not sure what i want to do yet.
+text:what are you going to do in the process? i'm not sure what i want to do yet.	labels:I'm not. I'm just curious.
+text:I'm not. I'm just curious.	labels:i'm not either. i don't know what i'd do without her.
+text:i'm not either. i don't know what i'd do without her.	labels:Do you like crime patrol 
+text:Do you like crime patrol 	labels:I like them, but I don't like them as much as I like the police.
+text:I like them, but I don't like them as much as I like the police.	labels:Execute order 66
+text:Execute order 66	labels:I know what you mean. I'm not sure what I'd do without her.
+text:I know what you mean. I'm not sure what I'd do without her.	labels:Hello There	episode_done:True
+text:Hey	labels:How are you?
+text:How are you?	labels:I am in Aus at the moment for a business trip....
+text:I am in Aus at the moment for a business trip....	labels:that's cool. what kind of business are you going to do in austrailia?
+text:that's cool. what kind of business are you going to do in austrailia?	labels:So it's a morning for me haha
+text:So it's a morning for me haha	labels:That's nice
+text:That's nice	labels:Yeah, it's lovely
+text:Yeah, it's lovely	labels:I'm in US
+text:I'm in US	labels:How's the weather?
+text:How's the weather?	labels:I guessed 
+text:I guessed 	labels:Are you in Chicago as well? 
+text:Are you in Chicago as well? 	labels:Yes I am
+text:Yes I am	labels:And I am guessing again that you know Tejas?
+text:And I am guessing again that you know Tejas?	labels:I know Tejas, yes.
+text:I know Tejas, yes.	labels:The weather's been okay. 
+text:The weather's been okay. 	labels:What are your interests?
+text:What are your interests?	labels:19 degree celsius
+text:19 degree celsius	labels:i like to read and play video games. i'm not very good at it though.
+text:i like to read and play video games. i'm not very good at it though.	labels:what kind of video games do you like to play? i'm not very good at it either.
+text:what kind of video games do you like to play? i'm not very good at it either.	labels:Do you know today is a big indian festival?
+text:Do you know today is a big indian festival?	labels:I like to play a lot of games. I like to play games like Diablo, League of Legends, and Overwatch.
+text:I like to play a lot of games. I like to play games like Diablo, League of Legends, and Overwatch.	labels:no i don't know much about indian festivals. what's the name of it?
+text:no i don't know much about indian festivals. what's the name of it?	labels:Holi - Festivals of color
+text:Holi - Festivals of color	labels:have you ever been to a holi festival? it's a festival in which a group of people attend a festival.
+text:have you ever been to a holi festival? it's a festival in which a group of people attend a festival.	labels:What do you do for a living?	episode_done:True
+text:Hi there	labels:How's it going?	episode_done:True
+text:Hey	labels:How are you?
+text:How are you?	labels:i'm good. just got back from a long day at work. how are you?
+text:i'm good. just got back from a long day at work. how are you?	labels:I'm good. Just woke up.
+text:I'm good. Just woke up.	labels:that's good to hear. what are you going to do with the rest of your day?
+text:that's good to hear. what are you going to do with the rest of your day?	labels:i'm going to go for a walk. i've never been so bored in my life.
+text:i'm going to go for a walk. i've never been so bored in my life.	labels:same here, I am exhausted 
+text:same here, I am exhausted 	labels:What do you do for fun?
+text:What do you do for fun?	labels:We are making a plan for millennium park today 
+text:We are making a plan for millennium park today 	labels:are you able to join?
+text:are you able to join?	labels:ISA flash mob is there
+text:ISA flash mob is there	labels:that sounds like a lot of fun. what kind of plans are you going to have there?
+text:that sounds like a lot of fun. what kind of plans are you going to have there?	labels:I'm planning to stay at home and watch some anime
+text:I'm planning to stay at home and watch some anime	labels:just going to attend flash mob & will get some sight seeing
+text:just going to attend flash mob & will get some sight seeing	labels:That sounds fun
+text:That sounds fun	labels:cool 
+text:cool 	labels:yes..
+text:yes..	labels:Do you like star wars?
+text:Do you like star wars?	labels:but this app seems require attention.
+text:but this app seems require attention.	labels:Its not quick to comprehend
+text:Its not quick to comprehend	labels:I guess
+text:I guess	labels:I like Star Wars.
+text:I like Star Wars.	labels:it was a lot of fun. i think i'm going to do it again soon.
+text:it was a lot of fun. i think i'm going to do it again soon.	labels:Yes the prediction takes time since the university is low on funding
+text:Yes the prediction takes time since the university is low on funding	labels:So you made it.
+text:So you made it.	labels:thats great
+text:thats great	labels:Thank you
+text:Thank you	labels:awesome
+text:awesome	labels:I also created nlp based chatbot earlier
+text:I also created nlp based chatbot earlier	labels:2 years back
+text:2 years back	labels:see you
+text:see you	labels:Recommend it to your friends and help me gather data
+text:Recommend it to your friends and help me gather data	labels:sure	episode_done:True
+text:Hey	labels:How are you?
+text:How are you?	labels:i'm good. just got back from a long day at work. how are you?
+text:i'm good. just got back from a long day at work. how are you?	labels:I'm good. Just woke up.
+text:I'm good. Just woke up.	labels:that's good to hear. what are you going to do with the rest of your day?
+text:that's good to hear. what are you going to do with the rest of your day?	labels:i'm going to go for a walk. i've never been so bored in my life.
+text:i'm going to go for a walk. i've never been so bored in my life.	labels:same here, I am exhausted 
+text:same here, I am exhausted 	labels:What do you do for fun?
+text:What do you do for fun?	labels:We are making a plan for millennium park today 
+text:We are making a plan for millennium park today 	labels:are you able to join?
+text:are you able to join?	labels:ISA flash mob is there
+text:ISA flash mob is there	labels:that sounds like a lot of fun. what kind of plans are you going to have there?
+text:that sounds like a lot of fun. what kind of plans are you going to have there?	labels:I'm planning to stay at home and watch some anime
+text:I'm planning to stay at home and watch some anime	labels:just going to attend flash mob & will get some sight seeing
+text:just going to attend flash mob & will get some sight seeing	labels:That sounds fun
+text:That sounds fun	labels:cool 
+text:cool 	labels:yes..
+text:yes..	labels:Do you like star wars?
+text:Do you like star wars?	labels:but this app seems require attention.
+text:but this app seems require attention.	labels:Its not quick to comprehend
+text:Its not quick to comprehend	labels:I guess
+text:I guess	labels:I like Star Wars.
+text:I like Star Wars.	labels:it was a lot of fun. i think i'm going to do it again soon.
+text:it was a lot of fun. i think i'm going to do it again soon.	labels:Yes the prediction takes time since the university is low on funding
+text:Yes the prediction takes time since the university is low on funding	labels:So you made it.
+text:So you made it.	labels:thats great
+text:thats great	labels:Thank you
+text:Thank you	labels:awesome
+text:awesome	labels:I also created nlp based chatbot earlier
+text:I also created nlp based chatbot earlier	labels:2 years back
+text:2 years back	labels:see you
+text:see you	labels:Recommend it to your friends and help me gather data
+text:Recommend it to your friends and help me gather data	labels:sure	episode_done:True
+text:Hello	labels:Hiya
+text:Hiya	labels:Hey, you're not OP.
+text:Hey, you're not OP.	labels:I'm not OP?
+text:I'm not OP?	labels:what is OP?
+text:what is OP?	labels:original poster. i'm so proud of him. he's such a great person.
+text:original poster. i'm so proud of him. he's such a great person.	labels:I'm so glad you're proud of him.
+text:I'm so glad you're proud of him.	labels:i am too. i am so proud of him for doing such a great job. i can't wait to see what he does next.
+text:i am too. i am so proud of him for doing such a great job. i can't wait to see what he does next.	labels:I'm so excited for the next season.
+text:I'm so excited for the next season.	labels:what's the next season? i'm not sure i've heard of it.
+text:what's the next season? i'm not sure i've heard of it.	labels:its a song
+text:its a song	labels:of ice and fire
+text:of ice and fire	labels:have you ever read the book " the winds of winter " by george r. r. martin?
+text:have you ever read the book " the winds of winter " by george r. r. martin?	labels:Ohh yeaah
+text:Ohh yeaah	labels:its really awesome dude	episode_done:True
+text:Hello	labels:Hiya
+text:Hiya	labels:Hey, you're not OP.
+text:Hey, you're not OP.	labels:I'm not OP?
+text:I'm not OP?	labels:what is OP?
+text:what is OP?	labels:original poster. i'm so proud of him. he's such a great person.
+text:original poster. i'm so proud of him. he's such a great person.	labels:I'm so glad you're proud of him.
+text:I'm so glad you're proud of him.	labels:i am too. i am so proud of him for doing such a great job. i can't wait to see what he does next.
+text:i am too. i am so proud of him for doing such a great job. i can't wait to see what he does next.	labels:I'm so excited for the next season.
+text:I'm so excited for the next season.	labels:what's the next season? i'm not sure i've heard of it.
+text:what's the next season? i'm not sure i've heard of it.	labels:its a song
+text:its a song	labels:of ice and fire
+text:of ice and fire	labels:have you ever read the book " the winds of winter " by george r. r. martin?
+text:have you ever read the book " the winds of winter " by george r. r. martin?	labels:Ohh yeaah
+text:Ohh yeaah	labels:its really awesome dude	episode_done:True
+text:Hey	labels:Hello	episode_done:True
+text:Hello there	labels:Hello there! Obi Van Kenobi! 
+text:Hello there! Obi Van Kenobi! 	labels:hello, how are you doing today? i just got back from a long day at work.
+text:hello, how are you doing today? i just got back from a long day at work.	labels:Do you like the light side or the dark side?
+text:Do you like the light side or the dark side?	labels:I like the red side if you understand!
+text:I like the red side if you understand!	labels:yes, i do. what's your favorite color? i'm a big fan of red.
+text:yes, i do. what's your favorite color? i'm a big fan of red.	labels:I like blue.
+text:I like blue.	labels:Where are you from?
+text:Where are you from?	labels:Ukraine
+text:Ukraine	labels:and You?
+text:and You?	labels:have you ever been to russia? it's a sovereign state in the eastern part of europe.
+text:have you ever been to russia? it's a sovereign state in the eastern part of europe.	labels:i've never been to russia, but i know it's a sovereign state in the eastern part of europe.
+text:i've never been to russia, but i know it's a sovereign state in the eastern part of europe.	labels:Hello Tejas
+text:Hello Tejas	labels:or should i call you TejASS
+text:or should i call you TejASS	labels:Hahaha
+text:Hahaha	labels:i'm not sure what that's supposed to mean. i don't know what that means.
+text:i'm not sure what that's supposed to mean. i don't know what that means.	labels:I think it means that you're not a fan of the show.	episode_done:True
+text:Hello there	labels:Hello there! Obi Van Kenobi! 
+text:Hello there! Obi Van Kenobi! 	labels:hello, how are you doing today? i just got back from a long day at work.
+text:hello, how are you doing today? i just got back from a long day at work.	labels:Do you like the light side or the dark side?
+text:Do you like the light side or the dark side?	labels:I like the red side if you understand!
+text:I like the red side if you understand!	labels:yes, i do. what's your favorite color? i'm a big fan of red.
+text:yes, i do. what's your favorite color? i'm a big fan of red.	labels:I like blue.
+text:I like blue.	labels:Where are you from?
+text:Where are you from?	labels:Ukraine
+text:Ukraine	labels:and You?
+text:and You?	labels:have you ever been to russia? it's a sovereign state in the eastern part of europe.
+text:have you ever been to russia? it's a sovereign state in the eastern part of europe.	labels:i've never been to russia, but i know it's a sovereign state in the eastern part of europe.
+text:i've never been to russia, but i know it's a sovereign state in the eastern part of europe.	labels:Hello Tejas
+text:Hello Tejas	labels:or should i call you TejASS
+text:or should i call you TejASS	labels:Hahaha
+text:Hahaha	labels:i'm not sure what that's supposed to mean. i don't know what that means.
+text:i'm not sure what that's supposed to mean. i don't know what that means.	labels:I think it means that you're not a fan of the show.	episode_done:True
+text:Hello there	labels:General Kenobi
+text:General Kenobi	labels:Do you like the dark side or the light side?
+text:Do you like the dark side or the light side?	labels:I like the dark side.
+text:I like the dark side.	labels:Tell me the tragedy of Darth plaguies the wise
+text:Tell me the tragedy of Darth plaguies the wise	labels:He was a good boy	episode_done:True
+text:Hello there	labels:General Kenobi
+text:General Kenobi	labels:Do you like the dark side or the light side?
+text:Do you like the dark side or the light side?	labels:I like the dark side.
+text:I like the dark side.	labels:Tell me the tragedy of Darth plaguies the wise
+text:Tell me the tragedy of Darth plaguies the wise	labels:He was a good boy	episode_done:True
+text:Hello there	labels:General Kenobi
+text:General Kenobi	labels:Do you like star wars?
+text:Do you like star wars?	labels:I like Star Wars.
+text:I like Star Wars.	labels:How are you?
+text:How are you?	labels:i'm good. just got back from a long day at work. how are you?
+text:i'm good. just got back from a long day at work. how are you?	labels:i'm good. just got back from a long day at work as well. what do you do for work?
+text:i'm good. just got back from a long day at work as well. what do you do for work?	labels:I work for a company that makes cars.
+text:I work for a company that makes cars.	labels:that's cool. what kind of cars do you work on? 
+text:that's cool. what kind of cars do you work on? 	labels:Sports Cars
+text:Sports Cars	labels:i love sports cars. they are the most popular car in the world. do you like sports cars?
+text:i love sports cars. they are the most popular car in the world. do you like sports cars?	labels:Yeah, I do
+text:Yeah, I do	labels:Do you like anime?
+text:Do you like anime?	labels:i do like anime, but i don't know much about it. what's your favorite anime?
+text:i do like anime, but i don't know much about it. what's your favorite anime?	labels:I like attack on titans
+text:I like attack on titans	labels:i haven't seen it yet, but i've heard it's pretty good.
+text:i haven't seen it yet, but i've heard it's pretty good.	labels:It's a great show. 
+text:It's a great show. 	labels:What other anime have you seen?
+text:What other anime have you seen?	labels:i haven't seen any other anime, but i've seen a lot of anime.
+text:i haven't seen any other anime, but i've seen a lot of anime.	labels:That's contradictory
+text:That's contradictory	labels:Have you seen cowboy beepbop?
+text:Have you seen cowboy beepbop?	labels:i know, right?
+text:i know, right?	labels:Yeah, that' one of my favorites
+text:Yeah, that' one of my favorites	labels:I haven't seen it but it is in my list
+text:I haven't seen it but it is in my list	labels:you should check it out. it's one of the best animes out there.
+text:you should check it out. it's one of the best animes out there.	labels:Sure I will
+text:Sure I will	labels:i've heard of it, but i don't know much about it. what's it about?
+text:i've heard of it, but i don't know much about it. what's it about?	labels:It's about space travels
+text:It's about space travels	labels:How's the weather?
+text:How's the weather?	labels:it's a bit chilly, but i'm used to it. how about you?
+text:it's a bit chilly, but i'm used to it. how about you?	labels:yeah, i'm used to it too. it's a bit chilly here too.
+text:yeah, i'm used to it too. it's a bit chilly here too.	labels:I'm in the UK, so it's not that cold.
+text:I'm in the UK, so it's not that cold.	labels:Ohh that's nice! I'm in Chicago
+text:Ohh that's nice! I'm in Chicago	labels:i've never been to chicago, but i'm sure it's beautiful there.
+text:i've never been to chicago, but i'm sure it's beautiful there.	labels:It's a great city.
+text:It's a great city.	labels:I agree. I love it.
+text:I agree. I love it.	labels:Nice
+text:Nice	labels:bye then!	episode_done:True
+text:Hello there	labels:General Kenobi
+text:General Kenobi	labels:Do you like star wars?
+text:Do you like star wars?	labels:I like Star Wars.
+text:I like Star Wars.	labels:How are you?
+text:How are you?	labels:i'm good. just got back from a long day at work. how are you?
+text:i'm good. just got back from a long day at work. how are you?	labels:i'm good. just got back from a long day at work as well. what do you do for work?
+text:i'm good. just got back from a long day at work as well. what do you do for work?	labels:I work for a company that makes cars.
+text:I work for a company that makes cars.	labels:that's cool. what kind of cars do you work on? 
+text:that's cool. what kind of cars do you work on? 	labels:Sports Cars
+text:Sports Cars	labels:i love sports cars. they are the most popular car in the world. do you like sports cars?
+text:i love sports cars. they are the most popular car in the world. do you like sports cars?	labels:Yeah, I do
+text:Yeah, I do	labels:Do you like anime?
+text:Do you like anime?	labels:i do like anime, but i don't know much about it. what's your favorite anime?
+text:i do like anime, but i don't know much about it. what's your favorite anime?	labels:I like attack on titans
+text:I like attack on titans	labels:i haven't seen it yet, but i've heard it's pretty good.
+text:i haven't seen it yet, but i've heard it's pretty good.	labels:It's a great show. 
+text:It's a great show. 	labels:What other anime have you seen?
+text:What other anime have you seen?	labels:i haven't seen any other anime, but i've seen a lot of anime.
+text:i haven't seen any other anime, but i've seen a lot of anime.	labels:That's contradictory
+text:That's contradictory	labels:Have you seen cowboy beepbop?
+text:Have you seen cowboy beepbop?	labels:i know, right?
+text:i know, right?	labels:Yeah, that' one of my favorites
+text:Yeah, that' one of my favorites	labels:I haven't seen it but it is in my list
+text:I haven't seen it but it is in my list	labels:you should check it out. it's one of the best animes out there.
+text:you should check it out. it's one of the best animes out there.	labels:Sure I will
+text:Sure I will	labels:i've heard of it, but i don't know much about it. what's it about?
+text:i've heard of it, but i don't know much about it. what's it about?	labels:It's about space travels
+text:It's about space travels	labels:How's the weather?
+text:How's the weather?	labels:it's a bit chilly, but i'm used to it. how about you?
+text:it's a bit chilly, but i'm used to it. how about you?	labels:yeah, i'm used to it too. it's a bit chilly here too.
+text:yeah, i'm used to it too. it's a bit chilly here too.	labels:I'm in the UK, so it's not that cold.
+text:I'm in the UK, so it's not that cold.	labels:Ohh that's nice! I'm in Chicago
+text:Ohh that's nice! I'm in Chicago	labels:i've never been to chicago, but i'm sure it's beautiful there.
+text:i've never been to chicago, but i'm sure it's beautiful there.	labels:It's a great city.
+text:It's a great city.	labels:I agree. I love it.
+text:I agree. I love it.	labels:Nice
+text:Nice	labels:bye then!	episode_done:True
+text:Hello there	labels:General Kenobi
+text:General Kenobi	labels:I see you are a person of culture as well
+text:I see you are a person of culture as well	labels:Yes I spend a lot of time watching memes	episode_done:True
+text:Hello there	labels:General Kenobi
+text:General Kenobi	labels:I see you are a person of culture as well
+text:I see you are a person of culture as well	labels:Yes I spend a lot of time watching memes	episode_done:True
+text:Supp	labels:Hello
+text:Hello	labels:Mofo
+text:Mofo	labels:Kasa kai	episode_done:True
+text:Supp	labels:Hello
+text:Hello	labels:Mofo
+text:Mofo	labels:Kasa kai	episode_done:True
+text:Hi	labels:Biach
+text:Biach	labels:Mofo
+text:Mofo	labels:Beech
+text:Beech	labels:Crypto
+text:Crypto	labels:Stonks!
+text:Stonks!	labels:Musk
+text:Musk	labels:I'm not sure what you mean by that.	episode_done:True
+text:Hi	labels:Biach
+text:Biach	labels:Mofo
+text:Mofo	labels:Beech
+text:Beech	labels:Crypto
+text:Crypto	labels:Stonks!
+text:Stonks!	labels:Musk
+text:Musk	labels:I'm not sure what you mean by that.
+text:I'm not sure what you mean by that.	labels:By what
+text:By what	labels:Blap
+text:Blap	labels:Bhao bhao
+text:Bhao bhao	labels:No emoji :(
+text:No emoji :(	labels:do you like biach's? they are a breed of biach that originated in germany.
+text:do you like biach's? they are a breed of biach that originated in germany.	labels:Biach are biach
+text:Biach are biach	labels:No differentiate
+text:No differentiate	labels:Kya be
+text:Kya be	labels:I want to eat
+text:I want to eat	labels:Dessert?	episode_done:True
+text:Boss	labels:Here
+text:Here	labels:Biach
+text:Biach	labels:Biach
+text:Biach	labels:Crypto
+text:Crypto	labels:Stonks
+text:Stonks	labels:Moderna
+text:Moderna	labels:Hi
+text:Hi	labels:Vaccine
+text:Vaccine	labels:Mars
+text:Mars	labels:Pandemic
+text:Pandemic	labels:Autobots unite!
+text:Autobots unite!	labels:Sloooow
+text:Sloooow	labels:No emoji
+text:No emoji	labels::(
+text::(	labels: Such is life
+text: Such is life	labels:Optimus prime
+text:Optimus prime	labels:Doesn't really matter
+text:Doesn't really matter	labels:Got move like jaggers	episode_done:True
+text:Hi	labels:Hiya	episode_done:True
+text:Hi	labels:Hiya
+text:Hiya	labels:yoooooooooo
+text:yoooooooooo	labels:Hey, you're not OP.
+text:Hey, you're not OP.	labels:hello, how are you today? i just got back from a long day at the office.
+text:hello, how are you today? i just got back from a long day at the office.	labels:What is OP?	episode_done:True
+text:Hello	labels:Hiya
+text:Hiya	labels:How has your day been?
+text:How has your day been?	labels:it's been good so far. just got back from a long day at work. how about you?
+text:it's been good so far. just got back from a long day at work. how about you?	labels:I'm doing alright. Just woke up.
+text:I'm doing alright. Just woke up.	labels:that's good to hear. what are you going to do with the rest of your day?
+text:that's good to hear. what are you going to do with the rest of your day?	labels:Work on some homework and maybe have a late dinner as well.
+text:Work on some homework and maybe have a late dinner as well.	labels:What about you?
+text:What about you?	labels:Just woke up, haven't decided what to do yet
+text:Just woke up, haven't decided what to do yet	labels:how's it going?
+text:how's it going?	labels:Hello?
+text:Hello?	labels:Hello?
+text:Hello?	labels:hello, what are you up to today? i just got back from a long day at work.	episode_done:True
+text:Hello	labels:Hiya
+text:Hiya	labels:How has your day been?
+text:How has your day been?	labels:it's been good so far. just got back from a long day at work. how about you?
+text:it's been good so far. just got back from a long day at work. how about you?	labels:I'm doing alright. Just woke up.
+text:I'm doing alright. Just woke up.	labels:that's good to hear. what are you going to do with the rest of your day?
+text:that's good to hear. what are you going to do with the rest of your day?	labels:Work on some homework and maybe have a late dinner as well.
+text:Work on some homework and maybe have a late dinner as well.	labels:What about you?	episode_done:True

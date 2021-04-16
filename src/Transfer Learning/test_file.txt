@@ -1,0 +1,389 @@
+yield (Hello,hello, how are you today? i just got back from a long day at the office.), True
+yield (hello, how are you today? i just got back from a long day at the office.,I'm doing well, thanks for asking.), False
+yield (I'm doing well, thanks for asking.,that's good to hear. i'm glad you're having a good day.), False
+yield (Hello,hello, how are you today? i just got back from a long day at the office.), True
+yield (hello, how are you today? i just got back from a long day at the office.,I'm doing well, thanks for asking.), False
+yield (I'm doing well, thanks for asking.,that's good to hear. i'm glad you're having a good day.), False
+yield (Hello there,Hello Kitty), True
+yield (Hello Kitty,i love kitty kitty! she's my favorite cat. do you have a favorite cat?), False
+yield (i love kitty kitty! she's my favorite cat. do you have a favorite cat?,But i like dogs), False
+yield (But i like dogs,what kind of dogs do you like? there are so many different kinds of dogs out there.), False
+yield (Hello there,Hello Kitty), True
+yield (Hello Kitty,i love kitty kitty! she's my favorite cat. do you have a favorite cat?), False
+yield (i love kitty kitty! she's my favorite cat. do you have a favorite cat?,But i like dogs), False
+yield (But i like dogs,what kind of dogs do you like? there are so many different kinds of dogs out there.), False
+yield (Hey,Hey, how are you?), True
+yield (Hey, how are you?,i'm good. just got back from a long day at work. how are you?), False
+yield (i'm good. just got back from a long day at work. how are you?,Good too, thanks), False
+yield (Good too, thanks,Do you like the tv show friends?), False
+yield (Do you like the tv show friends?,Yes), False
+yield (Yes,Do you think ross and rachel were on a break?), False
+yield (Do you think ross and rachel were on a break?,i don't think so. i think it's more likely that they were together for a while.), False
+yield (Hey,Hey, how are you?), True
+yield (Hey, how are you?,i'm good. just got back from a long day at work. how are you?), False
+yield (i'm good. just got back from a long day at work. how are you?,Good too, thanks), False
+yield (Good too, thanks,Do you like the tv show friends?), False
+yield (Do you like the tv show friends?,Yes), False
+yield (Yes,Do you think ross and rachel were on a break?), False
+yield (Do you think ross and rachel were on a break?,i don't think so. i think it's more likely that they were together for a while.), False
+yield (Test,i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.), True
+yield (Test,i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.), True
+yield (Test,i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.), True
+yield (i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.,what kind of test are you going to take? i'm sure you'll do great!), False
+yield (Test,i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.), True
+yield (i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.,what kind of test are you going to take? i'm sure you'll do great!), False
+yield (Hello friends,Hi there), True
+yield (Hi there,Chai pilo), False
+yield (Chai pilo,Hiya!), False
+yield (Hiya!,hello, how are you today? i just got back from a long day at the office.), False
+yield (hello, how are you today? i just got back from a long day at the office.,i'm doing well. i just got back from a long day at work as well.), False
+yield (i'm doing well. i just got back from a long day at work as well.,Good to hear.), False
+yield (Good to hear.,Have you seen the tv show friends?), False
+yield (Have you seen the tv show friends?,that's good to hear. what do you do for a living, if you don't mind me asking?), False
+yield (that's good to hear. what do you do for a living, if you don't mind me asking?,I work as on a research project for a military project), False
+yield (I work as on a research project for a military project,i'm a stay at home mom. it's hard work, but it pays the bills.), False
+yield (i'm a stay at home mom. it's hard work, but it pays the bills.,Hi), False
+yield (Hi,hi), False
+yield (hi,hi), False
+yield (hi,Hello), False
+yield (Hello,I am really depressed about job search), False
+yield (Hello,Hey partner), True
+yield (Hey partner,hi), False
+yield (hi,hi, how are you doing today? i just got back from a long day at work.), False
+yield (hi, how are you doing today? i just got back from a long day at work.,Do you watch tarak mehta), False
+yield (Do you watch tarak mehta,i've never heard of tarak mehta. i'll have to check it out.), False
+yield (i've never heard of tarak mehta. i'll have to check it out.,Hi), False
+yield (Hi,Hiya), False
+yield (Hiya,Hello tejas), False
+yield (Hello tejas,how are you?), False
+yield (how are you?,i cant see your texts), False
+yield (i cant see your texts,I'm good how are you?), False
+yield (I'm good how are you?,I can see your texts), False
+yield (Hello,Hi Eve!), True
+yield (Hi Eve!,Hi), False
+yield (Hi,F U), False
+yield (F U,DA), False
+yield (DA,Go make Maggi!), False
+yield (Go make Maggi!,Don't spend 59893 hours on the phone), False
+yield (Don't spend 59893 hours on the phone,In the process), False
+yield (In the process,what are you going to do in the process? i'm not sure what i want to do yet.), False
+yield (what are you going to do in the process? i'm not sure what i want to do yet.,I'm not. I'm just curious.), False
+yield (I'm not. I'm just curious.,i'm not either. i don't know what i'd do without her.), False
+yield (i'm not either. i don't know what i'd do without her.,Do you like crime patrol ), False
+yield (Do you like crime patrol ,I like them, but I don't like them as much as I like the police.), False
+yield (I like them, but I don't like them as much as I like the police.,Execute order 66), False
+yield (Execute order 66,I know what you mean. I'm not sure what I'd do without her.), False
+yield (I know what you mean. I'm not sure what I'd do without her.,Hello There), False
+yield (Hey,How are you?), True
+yield (How are you?,I am in Aus at the moment for a business trip....), False
+yield (I am in Aus at the moment for a business trip....,that's cool. what kind of business are you going to do in austrailia?), False
+yield (that's cool. what kind of business are you going to do in austrailia?,So it's a morning for me haha), False
+yield (So it's a morning for me haha,That's nice), False
+yield (That's nice,Yeah, it's lovely), False
+yield (Yeah, it's lovely,I'm in US), False
+yield (I'm in US,How's the weather?), False
+yield (How's the weather?,I guessed ), False
+yield (I guessed ,Are you in Chicago as well? ), False
+yield (Are you in Chicago as well? ,Yes I am), False
+yield (Yes I am,And I am guessing again that you know Tejas?), False
+yield (And I am guessing again that you know Tejas?,I know Tejas, yes.), False
+yield (I know Tejas, yes.,The weather's been okay. ), False
+yield (The weather's been okay. ,What are your interests?), False
+yield (What are your interests?,19 degree celsius), False
+yield (19 degree celsius,i like to read and play video games. i'm not very good at it though.), False
+yield (i like to read and play video games. i'm not very good at it though.,what kind of video games do you like to play? i'm not very good at it either.), False
+yield (what kind of video games do you like to play? i'm not very good at it either.,Do you know today is a big indian festival?), False
+yield (Do you know today is a big indian festival?,I like to play a lot of games. I like to play games like Diablo, League of Legends, and Overwatch.), False
+yield (I like to play a lot of games. I like to play games like Diablo, League of Legends, and Overwatch.,no i don't know much about indian festivals. what's the name of it?), False
+yield (no i don't know much about indian festivals. what's the name of it?,Holi - Festivals of color), False
+yield (Holi - Festivals of color,have you ever been to a holi festival? it's a festival in which a group of people attend a festival.), False
+yield (have you ever been to a holi festival? it's a festival in which a group of people attend a festival.,What do you do for a living?), False
+yield (Hi there,How's it going?), True
+yield (Hey,How are you?), True
+yield (How are you?,i'm good. just got back from a long day at work. how are you?), False
+yield (i'm good. just got back from a long day at work. how are you?,I'm good. Just woke up.), False
+yield (I'm good. Just woke up.,that's good to hear. what are you going to do with the rest of your day?), False
+yield (that's good to hear. what are you going to do with the rest of your day?,i'm going to go for a walk. i've never been so bored in my life.), False
+yield (i'm going to go for a walk. i've never been so bored in my life.,same here, I am exhausted ), False
+yield (same here, I am exhausted ,What do you do for fun?), False
+yield (What do you do for fun?,We are making a plan for millennium park today ), False
+yield (We are making a plan for millennium park today ,are you able to join?), False
+yield (are you able to join?,ISA flash mob is there), False
+yield (ISA flash mob is there,that sounds like a lot of fun. what kind of plans are you going to have there?), False
+yield (that sounds like a lot of fun. what kind of plans are you going to have there?,I'm planning to stay at home and watch some anime), False
+yield (I'm planning to stay at home and watch some anime,just going to attend flash mob & will get some sight seeing), False
+yield (just going to attend flash mob & will get some sight seeing,That sounds fun), False
+yield (That sounds fun,cool ), False
+yield (cool ,yes..), False
+yield (yes..,Do you like star wars?), False
+yield (Do you like star wars?,but this app seems require attention.), False
+yield (but this app seems require attention.,Its not quick to comprehend), False
+yield (Its not quick to comprehend,I guess), False
+yield (I guess,I like Star Wars.), False
+yield (I like Star Wars.,it was a lot of fun. i think i'm going to do it again soon.), False
+yield (it was a lot of fun. i think i'm going to do it again soon.,Yes the prediction takes time since the university is low on funding), False
+yield (Yes the prediction takes time since the university is low on funding,So you made it.), False
+yield (So you made it.,thats great), False
+yield (thats great,Thank you), False
+yield (Thank you,awesome), False
+yield (awesome,I also created nlp based chatbot earlier), False
+yield (I also created nlp based chatbot earlier,2 years back), False
+yield (2 years back,see you), False
+yield (see you,Recommend it to your friends and help me gather data), False
+yield (Recommend it to your friends and help me gather data,sure), False
+yield (Hey,How are you?), True
+yield (How are you?,i'm good. just got back from a long day at work. how are you?), False
+yield (i'm good. just got back from a long day at work. how are you?,I'm good. Just woke up.), False
+yield (I'm good. Just woke up.,that's good to hear. what are you going to do with the rest of your day?), False
+yield (that's good to hear. what are you going to do with the rest of your day?,i'm going to go for a walk. i've never been so bored in my life.), False
+yield (i'm going to go for a walk. i've never been so bored in my life.,same here, I am exhausted ), False
+yield (same here, I am exhausted ,What do you do for fun?), False
+yield (What do you do for fun?,We are making a plan for millennium park today ), False
+yield (We are making a plan for millennium park today ,are you able to join?), False
+yield (are you able to join?,ISA flash mob is there), False
+yield (ISA flash mob is there,that sounds like a lot of fun. what kind of plans are you going to have there?), False
+yield (that sounds like a lot of fun. what kind of plans are you going to have there?,I'm planning to stay at home and watch some anime), False
+yield (I'm planning to stay at home and watch some anime,just going to attend flash mob & will get some sight seeing), False
+yield (just going to attend flash mob & will get some sight seeing,That sounds fun), False
+yield (That sounds fun,cool ), False
+yield (cool ,yes..), False
+yield (yes..,Do you like star wars?), False
+yield (Do you like star wars?,but this app seems require attention.), False
+yield (but this app seems require attention.,Its not quick to comprehend), False
+yield (Its not quick to comprehend,I guess), False
+yield (I guess,I like Star Wars.), False
+yield (I like Star Wars.,it was a lot of fun. i think i'm going to do it again soon.), False
+yield (it was a lot of fun. i think i'm going to do it again soon.,Yes the prediction takes time since the university is low on funding), False
+yield (Yes the prediction takes time since the university is low on funding,So you made it.), False
+yield (So you made it.,thats great), False
+yield (thats great,Thank you), False
+yield (Thank you,awesome), False
+yield (awesome,I also created nlp based chatbot earlier), False
+yield (I also created nlp based chatbot earlier,2 years back), False
+yield (2 years back,see you), False
+yield (see you,Recommend it to your friends and help me gather data), False
+yield (Recommend it to your friends and help me gather data,sure), False
+yield (Hello,Hiya), True
+yield (Hiya,Hey, you're not OP.), False
+yield (Hey, you're not OP.,I'm not OP?), False
+yield (I'm not OP?,what is OP?), False
+yield (what is OP?,original poster. i'm so proud of him. he's such a great person.), False
+yield (original poster. i'm so proud of him. he's such a great person.,I'm so glad you're proud of him.), False
+yield (I'm so glad you're proud of him.,i am too. i am so proud of him for doing such a great job. i can't wait to see what he does next.), False
+yield (i am too. i am so proud of him for doing such a great job. i can't wait to see what he does next.,I'm so excited for the next season.), False
+yield (I'm so excited for the next season.,what's the next season? i'm not sure i've heard of it.), False
+yield (what's the next season? i'm not sure i've heard of it.,its a song), False
+yield (its a song,of ice and fire), False
+yield (of ice and fire,have you ever read the book " the winds of winter " by george r. r. martin?), False
+yield (have you ever read the book " the winds of winter " by george r. r. martin?,Ohh yeaah), False
+yield (Ohh yeaah,its really awesome dude), False
+yield (Hello,Hiya), True
+yield (Hiya,Hey, you're not OP.), False
+yield (Hey, you're not OP.,I'm not OP?), False
+yield (I'm not OP?,what is OP?), False
+yield (what is OP?,original poster. i'm so proud of him. he's such a great person.), False
+yield (original poster. i'm so proud of him. he's such a great person.,I'm so glad you're proud of him.), False
+yield (I'm so glad you're proud of him.,i am too. i am so proud of him for doing such a great job. i can't wait to see what he does next.), False
+yield (i am too. i am so proud of him for doing such a great job. i can't wait to see what he does next.,I'm so excited for the next season.), False
+yield (I'm so excited for the next season.,what's the next season? i'm not sure i've heard of it.), False
+yield (what's the next season? i'm not sure i've heard of it.,its a song), False
+yield (its a song,of ice and fire), False
+yield (of ice and fire,have you ever read the book " the winds of winter " by george r. r. martin?), False
+yield (have you ever read the book " the winds of winter " by george r. r. martin?,Ohh yeaah), False
+yield (Ohh yeaah,its really awesome dude), False
+yield (Hey,Hello), True
+yield (Hello there,Hello there! Obi Van Kenobi! ), True
+yield (Hello there! Obi Van Kenobi! ,hello, how are you doing today? i just got back from a long day at work.), False
+yield (hello, how are you doing today? i just got back from a long day at work.,Do you like the light side or the dark side?), False
+yield (Do you like the light side or the dark side?,I like the red side if you understand!), False
+yield (I like the red side if you understand!,yes, i do. what's your favorite color? i'm a big fan of red.), False
+yield (yes, i do. what's your favorite color? i'm a big fan of red.,I like blue.), False
+yield (I like blue.,Where are you from?), False
+yield (Where are you from?,Ukraine), False
+yield (Ukraine,and You?), False
+yield (and You?,have you ever been to russia? it's a sovereign state in the eastern part of europe.), False
+yield (have you ever been to russia? it's a sovereign state in the eastern part of europe.,i've never been to russia, but i know it's a sovereign state in the eastern part of europe.), False
+yield (i've never been to russia, but i know it's a sovereign state in the eastern part of europe.,Hello Tejas), False
+yield (Hello Tejas,or should i call you TejASS), False
+yield (or should i call you TejASS,Hahaha), False
+yield (Hahaha,i'm not sure what that's supposed to mean. i don't know what that means.), False
+yield (i'm not sure what that's supposed to mean. i don't know what that means.,I think it means that you're not a fan of the show.), False
+yield (Hello there,Hello there! Obi Van Kenobi! ), True
+yield (Hello there! Obi Van Kenobi! ,hello, how are you doing today? i just got back from a long day at work.), False
+yield (hello, how are you doing today? i just got back from a long day at work.,Do you like the light side or the dark side?), False
+yield (Do you like the light side or the dark side?,I like the red side if you understand!), False
+yield (I like the red side if you understand!,yes, i do. what's your favorite color? i'm a big fan of red.), False
+yield (yes, i do. what's your favorite color? i'm a big fan of red.,I like blue.), False
+yield (I like blue.,Where are you from?), False
+yield (Where are you from?,Ukraine), False
+yield (Ukraine,and You?), False
+yield (and You?,have you ever been to russia? it's a sovereign state in the eastern part of europe.), False
+yield (have you ever been to russia? it's a sovereign state in the eastern part of europe.,i've never been to russia, but i know it's a sovereign state in the eastern part of europe.), False
+yield (i've never been to russia, but i know it's a sovereign state in the eastern part of europe.,Hello Tejas), False
+yield (Hello Tejas,or should i call you TejASS), False
+yield (or should i call you TejASS,Hahaha), False
+yield (Hahaha,i'm not sure what that's supposed to mean. i don't know what that means.), False
+yield (i'm not sure what that's supposed to mean. i don't know what that means.,I think it means that you're not a fan of the show.), False
+yield (Hello there,General Kenobi), True
+yield (General Kenobi,Do you like the dark side or the light side?), False
+yield (Do you like the dark side or the light side?,I like the dark side.), False
+yield (I like the dark side.,Tell me the tragedy of Darth plaguies the wise), False
+yield (Tell me the tragedy of Darth plaguies the wise,He was a good boy), False
+yield (Hello there,General Kenobi), True
+yield (General Kenobi,Do you like the dark side or the light side?), False
+yield (Do you like the dark side or the light side?,I like the dark side.), False
+yield (I like the dark side.,Tell me the tragedy of Darth plaguies the wise), False
+yield (Tell me the tragedy of Darth plaguies the wise,He was a good boy), False
+yield (Hello there,General Kenobi), True
+yield (General Kenobi,Do you like star wars?), False
+yield (Do you like star wars?,I like Star Wars.), False
+yield (I like Star Wars.,How are you?), False
+yield (How are you?,i'm good. just got back from a long day at work. how are you?), False
+yield (i'm good. just got back from a long day at work. how are you?,i'm good. just got back from a long day at work as well. what do you do for work?), False
+yield (i'm good. just got back from a long day at work as well. what do you do for work?,I work for a company that makes cars.), False
+yield (I work for a company that makes cars.,that's cool. what kind of cars do you work on? ), False
+yield (that's cool. what kind of cars do you work on? ,Sports Cars), False
+yield (Sports Cars,i love sports cars. they are the most popular car in the world. do you like sports cars?), False
+yield (i love sports cars. they are the most popular car in the world. do you like sports cars?,Yeah, I do), False
+yield (Yeah, I do,Do you like anime?), False
+yield (Do you like anime?,i do like anime, but i don't know much about it. what's your favorite anime?), False
+yield (i do like anime, but i don't know much about it. what's your favorite anime?,I like attack on titans), False
+yield (I like attack on titans,i haven't seen it yet, but i've heard it's pretty good.), False
+yield (i haven't seen it yet, but i've heard it's pretty good.,It's a great show. ), False
+yield (It's a great show. ,What other anime have you seen?), False
+yield (What other anime have you seen?,i haven't seen any other anime, but i've seen a lot of anime.), False
+yield (i haven't seen any other anime, but i've seen a lot of anime.,That's contradictory), False
+yield (That's contradictory,Have you seen cowboy beepbop?), False
+yield (Have you seen cowboy beepbop?,i know, right?), False
+yield (i know, right?,Yeah, that' one of my favorites), False
+yield (Yeah, that' one of my favorites,I haven't seen it but it is in my list), False
+yield (I haven't seen it but it is in my list,you should check it out. it's one of the best animes out there.), False
+yield (you should check it out. it's one of the best animes out there.,Sure I will), False
+yield (Sure I will,i've heard of it, but i don't know much about it. what's it about?), False
+yield (i've heard of it, but i don't know much about it. what's it about?,It's about space travels), False
+yield (It's about space travels,How's the weather?), False
+yield (How's the weather?,it's a bit chilly, but i'm used to it. how about you?), False
+yield (it's a bit chilly, but i'm used to it. how about you?,yeah, i'm used to it too. it's a bit chilly here too.), False
+yield (yeah, i'm used to it too. it's a bit chilly here too.,I'm in the UK, so it's not that cold.), False
+yield (I'm in the UK, so it's not that cold.,Ohh that's nice! I'm in Chicago), False
+yield (Ohh that's nice! I'm in Chicago,i've never been to chicago, but i'm sure it's beautiful there.), False
+yield (i've never been to chicago, but i'm sure it's beautiful there.,It's a great city.), False
+yield (It's a great city.,I agree. I love it.), False
+yield (I agree. I love it.,Nice), False
+yield (Nice,bye then!), False
+yield (Hello there,General Kenobi), True
+yield (General Kenobi,Do you like star wars?), False
+yield (Do you like star wars?,I like Star Wars.), False
+yield (I like Star Wars.,How are you?), False
+yield (How are you?,i'm good. just got back from a long day at work. how are you?), False
+yield (i'm good. just got back from a long day at work. how are you?,i'm good. just got back from a long day at work as well. what do you do for work?), False
+yield (i'm good. just got back from a long day at work as well. what do you do for work?,I work for a company that makes cars.), False
+yield (I work for a company that makes cars.,that's cool. what kind of cars do you work on? ), False
+yield (that's cool. what kind of cars do you work on? ,Sports Cars), False
+yield (Sports Cars,i love sports cars. they are the most popular car in the world. do you like sports cars?), False
+yield (i love sports cars. they are the most popular car in the world. do you like sports cars?,Yeah, I do), False
+yield (Yeah, I do,Do you like anime?), False
+yield (Do you like anime?,i do like anime, but i don't know much about it. what's your favorite anime?), False
+yield (i do like anime, but i don't know much about it. what's your favorite anime?,I like attack on titans), False
+yield (I like attack on titans,i haven't seen it yet, but i've heard it's pretty good.), False
+yield (i haven't seen it yet, but i've heard it's pretty good.,It's a great show. ), False
+yield (It's a great show. ,What other anime have you seen?), False
+yield (What other anime have you seen?,i haven't seen any other anime, but i've seen a lot of anime.), False
+yield (i haven't seen any other anime, but i've seen a lot of anime.,That's contradictory), False
+yield (That's contradictory,Have you seen cowboy beepbop?), False
+yield (Have you seen cowboy beepbop?,i know, right?), False
+yield (i know, right?,Yeah, that' one of my favorites), False
+yield (Yeah, that' one of my favorites,I haven't seen it but it is in my list), False
+yield (I haven't seen it but it is in my list,you should check it out. it's one of the best animes out there.), False
+yield (you should check it out. it's one of the best animes out there.,Sure I will), False
+yield (Sure I will,i've heard of it, but i don't know much about it. what's it about?), False
+yield (i've heard of it, but i don't know much about it. what's it about?,It's about space travels), False
+yield (It's about space travels,How's the weather?), False
+yield (How's the weather?,it's a bit chilly, but i'm used to it. how about you?), False
+yield (it's a bit chilly, but i'm used to it. how about you?,yeah, i'm used to it too. it's a bit chilly here too.), False
+yield (yeah, i'm used to it too. it's a bit chilly here too.,I'm in the UK, so it's not that cold.), False
+yield (I'm in the UK, so it's not that cold.,Ohh that's nice! I'm in Chicago), False
+yield (Ohh that's nice! I'm in Chicago,i've never been to chicago, but i'm sure it's beautiful there.), False
+yield (i've never been to chicago, but i'm sure it's beautiful there.,It's a great city.), False
+yield (It's a great city.,I agree. I love it.), False
+yield (I agree. I love it.,Nice), False
+yield (Nice,bye then!), False
+yield (Hello there,General Kenobi), True
+yield (General Kenobi,I see you are a person of culture as well), False
+yield (I see you are a person of culture as well,Yes I spend a lot of time watching memes), False
+yield (Hello there,General Kenobi), True
+yield (General Kenobi,I see you are a person of culture as well), False
+yield (I see you are a person of culture as well,Yes I spend a lot of time watching memes), False
+yield (Supp,Hello), True
+yield (Hello,Mofo), False
+yield (Mofo,Kasa kai), False
+yield (Supp,Hello), True
+yield (Hello,Mofo), False
+yield (Mofo,Kasa kai), False
+yield (Hi,Biach), True
+yield (Biach,Mofo), False
+yield (Mofo,Beech), False
+yield (Beech,Crypto), False
+yield (Crypto,Stonks!), False
+yield (Stonks!,Musk), False
+yield (Musk,I'm not sure what you mean by that.), False
+yield (Hi,Biach), True
+yield (Biach,Mofo), False
+yield (Mofo,Beech), False
+yield (Beech,Crypto), False
+yield (Crypto,Stonks!), False
+yield (Stonks!,Musk), False
+yield (Musk,I'm not sure what you mean by that.), False
+yield (I'm not sure what you mean by that.,By what), False
+yield (By what,Blap), False
+yield (Blap,Bhao bhao), False
+yield (Bhao bhao,No emoji :(), False
+yield (No emoji :(,do you like biach's? they are a breed of biach that originated in germany.), False
+yield (do you like biach's? they are a breed of biach that originated in germany.,Biach are biach), False
+yield (Biach are biach,No differentiate), False
+yield (No differentiate,Kya be), False
+yield (Kya be,I want to eat), False
+yield (I want to eat,Dessert?), False
+yield (Boss,Here), True
+yield (Here,Biach), False
+yield (Biach,Biach), False
+yield (Biach,Crypto), False
+yield (Crypto,Stonks), False
+yield (Stonks,Moderna), False
+yield (Moderna,Hi), False
+yield (Hi,Vaccine), False
+yield (Vaccine,Mars), False
+yield (Mars,Pandemic), False
+yield (Pandemic,Autobots unite!), False
+yield (Autobots unite!,Sloooow), False
+yield (Sloooow,No emoji), False
+yield (No emoji,:(), False
+yield (:(, Such is life), False
+yield ( Such is life,Optimus prime), False
+yield (Optimus prime,Doesn't really matter), False
+yield (Doesn't really matter,Got move like jaggers), False
+yield (Hi,Hiya), True
+yield (Hi,Hiya), True
+yield (Hiya,yoooooooooo), False
+yield (yoooooooooo,Hey, you're not OP.), False
+yield (Hey, you're not OP.,hello, how are you today? i just got back from a long day at the office.), False
+yield (hello, how are you today? i just got back from a long day at the office.,What is OP?), False
+yield (Hello,Hiya), True
+yield (Hiya,How has your day been?), False
+yield (How has your day been?,it's been good so far. just got back from a long day at work. how about you?), False
+yield (it's been good so far. just got back from a long day at work. how about you?,I'm doing alright. Just woke up.), False
+yield (I'm doing alright. Just woke up.,that's good to hear. what are you going to do with the rest of your day?), False
+yield (that's good to hear. what are you going to do with the rest of your day?,Work on some homework and maybe have a late dinner as well.), False
+yield (Work on some homework and maybe have a late dinner as well.,What about you?), False
+yield (What about you?,Just woke up, haven't decided what to do yet), False
+yield (Just woke up, haven't decided what to do yet,how's it going?), False
+yield (how's it going?,Hello?), False
+yield (Hello?,Hello?), False
+yield (Hello?,hello, what are you up to today? i just got back from a long day at work.), False
+yield (Hello,Hiya), True
+yield (Hiya,How has your day been?), False
+yield (How has your day been?,it's been good so far. just got back from a long day at work. how about you?), False
+yield (it's been good so far. just got back from a long day at work. how about you?,I'm doing alright. Just woke up.), False
+yield (I'm doing alright. Just woke up.,that's good to hear. what are you going to do with the rest of your day?), False
+yield (that's good to hear. what are you going to do with the rest of your day?,Work on some homework and maybe have a late dinner as well.), False
+yield (Work on some homework and maybe have a late dinner as well.,What about you?), False
