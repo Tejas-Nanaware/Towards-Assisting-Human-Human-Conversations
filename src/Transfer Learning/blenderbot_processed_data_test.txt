@@ -1,0 +1,30 @@
+text:Hello	labels:hello, how are you today? i just got back from a long day at the office.
+text:hello, how are you today? i just got back from a long day at the office.	labels:I'm doing well, thanks for asking.
+text:I'm doing well, thanks for asking.	labels:that's good to hear. i'm glad you're having a good day.	episode_done:True
+text:Hello	labels:hello, how are you today? i just got back from a long day at the office.
+text:hello, how are you today? i just got back from a long day at the office.	labels:I'm doing well, thanks for asking.
+text:I'm doing well, thanks for asking.	labels:that's good to hear. i'm glad you're having a good day.	episode_done:True
+text:Hello there	labels:Hello Kitty
+text:Hello Kitty	labels:i love kitty kitty! she's my favorite cat. do you have a favorite cat?
+text:i love kitty kitty! she's my favorite cat. do you have a favorite cat?	labels:But i like dogs
+text:But i like dogs	labels:what kind of dogs do you like? there are so many different kinds of dogs out there.	episode_done:True
+text:Hello there	labels:Hello Kitty
+text:Hello Kitty	labels:i love kitty kitty! she's my favorite cat. do you have a favorite cat?
+text:i love kitty kitty! she's my favorite cat. do you have a favorite cat?	labels:But i like dogs
+text:But i like dogs	labels:what kind of dogs do you like? there are so many different kinds of dogs out there.	episode_done:True
+text:Hey	labels:Hey, how are you?
+text:Hey, how are you?	labels:i'm good. just got back from a long day at work. how are you?
+text:i'm good. just got back from a long day at work. how are you?	labels:Good too, thanks
+text:Good too, thanks	labels:Do you like the tv show friends?
+text:Do you like the tv show friends?	labels:Yes
+text:Yes	labels:Do you think ross and rachel were on a break?
+text:Do you think ross and rachel were on a break?	labels:i don't think so. i think it's more likely that they were together for a while.	episode_done:True
+text:Hey	labels:Hey, how are you?
+text:Hey, how are you?	labels:i'm good. just got back from a long day at work. how are you?
+text:i'm good. just got back from a long day at work. how are you?	labels:Good too, thanks
+text:Good too, thanks	labels:Do you like the tv show friends?
+text:Do you like the tv show friends?	labels:Yes
+text:Yes	labels:Do you think ross and rachel were on a break?
+text:Do you think ross and rachel were on a break?	labels:i don't think so. i think it's more likely that they were together for a while.	episode_done:True
+text:Test	labels:i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.	episode_done:True
+text:Test	labels:i have a test tomorrow that i am going to test. it is a test to see if my test is good or not.	episode_done:True
