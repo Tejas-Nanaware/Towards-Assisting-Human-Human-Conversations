@@ -2,3 +2,5 @@ datasets/
 src/ChatFramework/node_modules
 *.zip
 src/Analysis/config.py
+docs/Thesis/Forms
+
